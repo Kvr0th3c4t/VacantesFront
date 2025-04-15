@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,9 @@ export class LoginComponent {
       password: new FormControl(null, []),
     });
   }
-
+  ngOnInit() {
+    localStorage.clear();
+  }
   getUser() {
     const user = this.modelForm.value;
     this.loginService.login(user).subscribe({
@@ -29,7 +32,17 @@ export class LoginComponent {
         const rol = res.user.rol;
 
         if (!res.accessToken) {
-          return alert('Usuario o contraseña incorrectos');
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Usuario o contraseña incorrectos',
+            confirmButtonText: 'Aceptar',
+            customClass: {
+              confirmButton: 'btn btn-secondary',
+            },
+            buttonsStyling: false,
+          });
+          return;
         }
 
         localStorage.setItem('accessToken', res.accessToken);
@@ -51,7 +64,16 @@ export class LoginComponent {
         }
       },
       error: (err) => {
-        alert('Usuario o contraseña incorrectos');
+        Swal.fire({
+          icon: 'error',
+          title: 'Login fallido',
+          text: 'Usuario o contraseña incorrectos',
+          confirmButtonText: 'Aceptar',
+          customClass: {
+            confirmButton: 'btn btn-secondary',
+          },
+          buttonsStyling: false,
+        });
         this.modelForm.reset();
       },
     });

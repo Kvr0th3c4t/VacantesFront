@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { loginGuard } from './guards/login.guard';
 import { ClienteSolicitudesComponent } from './pages/cliente-solicitudes/cliente-solicitudes.component';
 import { ClienteSolicitarVacanteComponent } from './pages/cliente-solicitar-vacante/cliente-solicitar-vacante.component';
+import { NotFoundComponent } from './pages/not-found-page/not-found-page.component';
 
 export const routes: Routes = [
   { path: 'login', pathMatch: 'full', component: LoginComponent },
@@ -30,7 +31,7 @@ export const routes: Routes = [
         data: { roles: ['CLIENTE'] },
       },
       {
-        path: 'solicitar',
+        path: 'solicitar/:idVacante',
         component: ClienteSolicitarVacanteComponent,
         canActivate: [loginGuard], // Protege la ruta hija
         data: { roles: ['CLIENTE'] },
@@ -55,5 +56,5 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '**', redirectTo: 'login' },
+  { path: '**', component: NotFoundComponent },
 ];

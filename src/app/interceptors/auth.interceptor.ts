@@ -1,8 +1,6 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  console.log('Paso por el interceptor');
-
   if (req.url.includes('/auth/signup')) {
     const clonedRequest = req.clone({
       setHeaders: {

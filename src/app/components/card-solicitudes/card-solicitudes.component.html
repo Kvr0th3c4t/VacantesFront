@@ -1,0 +1,37 @@
+<div class="card shadow bg-light mb-4 border-0" style="max-width: 700px;">
+  <div class="row g-0 align-items-center">
+
+    <!-- Imagen -->
+    <div class="col-md-4 d-flex justify-content-center align-items-center bg-secondary bg-opacity-10">
+      <img [src]="solicitud.imagen" alt="Imagen oferta" class="img-fluid p-3"
+        style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+    <!-- Contenido -->
+    <div class="col-md-8">
+      <div class="card-body text-dark">
+
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <h6 class="fw-bold mb-0">{{ solicitud.nombreVacante }}</h6>
+            <p class="text-muted mb-1">Salario: {{ solicitud.salario }}€</p>
+          </div>
+          <span class="badge bg-dark">{{ solicitud.estatus}}</span>
+        </div>
+
+        <div>
+          <p class="fw-bold mt-2 mb-1">COMENTARIOS</p>
+          <p class="text-muted small mb-3">{{ solicitud.comentarios }}</p>
+        </div>
+
+        <div class="text-center">
+          <button class="btn btn-secondary" (click)="eliminarSolicitud(solicitud.idSolicitud)">
+            <i class="fas fa-trash me-2"></i> ELIMINAR SOLICITUD
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

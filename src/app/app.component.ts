@@ -13,7 +13,10 @@ export class AppComponent {
   title = 'Reto3VacantesApp';
   constructor(private router: Router) {}
   showNavbar() {
-    // Oculta el navbar si la ruta actual es '/login'
-    return this.router.url !== '/login';
+    return (
+      this.router.url.startsWith('/usuario') ||
+      this.router.url.startsWith('/admin') ||
+      this.router.url.startsWith('/empresa')
+    );
   }
 }
