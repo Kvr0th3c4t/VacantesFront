@@ -15,33 +15,30 @@ export class LoginComponent {
   modelForm: FormGroup;
   loginService = inject(AuthService);
   router = inject(Router);
+  loading: boolean;
 
   constructor() {
     this.modelForm = new FormGroup({
       username: new FormControl(null, []),
       password: new FormControl(null, []),
     });
+    this.loading = false; // Inicializa loading en false
   }
   ngOnInit() {
     localStorage.clear();
   }
   getUser() {
+    this.loading = true;
+
     const user = this.modelForm.value;
+
     this.loginService.login(user).subscribe({
       next: (res) => {
+        this.loading = false;
         const rol = res.user.rol;
 
         if (!res.accessToken) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Usuario o contraseña incorrectos',
-            confirmButtonText: 'Aceptar',
-            customClass: {
-              confirmButton: 'btn btn-secondary',
-            },
-            buttonsStyling: false,
-          });
+          this.mostrarError('Usuario o contraseña incorrectos');
           return;
         }
 
@@ -64,18 +61,23 @@ export class LoginComponent {
         }
       },
       error: (err) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Login fallido',
-          text: 'Usuario o contraseña incorrectos',
-          confirmButtonText: 'Aceptar',
-          customClass: {
-            confirmButton: 'btn btn-secondary',
-          },
-          buttonsStyling: false,
-        });
+        this.loading = false;
+        this.mostrarError('Usuario o contraseña incorrectos');
         this.modelForm.reset();
       },
+    });
+  }
+
+  private mostrarError(mensaje: string): void {
+    Swal.fire({
+      icon: 'error',
+      title: 'Login fallido',
+      text: mensaje,
+      confirmButtonText: 'Aceptar',
+      customClass: {
+        confirmButton: 'btn btn-secondary',
+      },
+      buttonsStyling: false,
     });
   }
 }
