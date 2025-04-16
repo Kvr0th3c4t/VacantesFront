@@ -1,19 +1,23 @@
 <div class="container mt-5">
-
   <h2 class="mb-4 text-center">Mis Solicitudes</h2>
 
-  @if (this.arrSolicitudes.length > 0) {
+  @if (!cargando()) {
+  @if (solicitudes().length > 0) {
   <div class="d-flex flex-column align-items-center gap-4">
-    @for (solicitud of arrSolicitudes; track solicitud.idSolicitud) {
-     <app-card-solicitudes [solicitud]="solicitud" ></app-card-solicitudes>
+    @for (solicitud of solicitudes(); track solicitud.idSolicitud) {
+    <app-card-solicitudes [solicitud]="solicitud" (onEliminar)="loadSolicitudes()">
+    </app-card-solicitudes>
     }
   </div>
-  }
-
-  @else {
+  } @else {
   <div class="alert alert-warning text-center" role="alert">
     No has realizado ninguna solicitud todavía.
   </div>
   }
-
+  } @else {
+  <div class="text-center">
+    <div class="spinner-border text-secondary" role="status"></div>
+    <p class="mt-2">Cargando solicitudes...</p>
+  </div>
+  }
 </div>

@@ -1,39 +1,57 @@
 <div class="container mt-5">
-  <div class="row justify-content-center align-items-start text-start">
+  @if (vacante) {
+  <form [formGroup]="formSolicitud" (ngSubmit)="enviarSolicitud()">
+    <div class="row justify-content-center align-items-start text-start">
 
-    <!-- Título y Comentario -->
-    <div class="col-md-6 mb-4">
-      <h2 class="fw-bold mb-4">{{ vacante.nombre }}</h2>
+      <!-- COMENTARIOS -->
+      <div class="col-md-6 mb-4">
+        <h2 class="fw-bold mb-4">{{ vacante.nombre }}</h2>
 
-      <label for="comentario" class="form-label fw-bold small">COMENTARIO</label>
-      <textarea id="comentario" class="form-control" placeholder="Acerca de ti, tu experiencia, educación...."
-        style="height: 150px;"></textarea>
+        <label for="comentario" class="form-label fw-bold small">COMENTARIO</label>
+        <textarea id="comentario" class="form-control" [ngClass]="{
+              'is-invalid': comentarios?.touched && comentarios?.invalid,
+              'is-valid': comentarios?.touched && comentarios?.valid
+            }" placeholder="Acerca de ti, tu experiencia, educación..." style="height: 150px;"
+          formControlName="comentarios">
+          </textarea>
 
-      <div class="mt-3">
-        <button class="btn btn-secondary d-flex align-items-center gap-2">
-          📎 ADJUNTAR CV
+        @if (comentarios?.touched && comentarios?.invalid) {
+        <div class="invalid-feedback">
+          Este campo es obligatorio.
+        </div>
+        }
+
+        <div class="mt-3">
+          <button class="btn btn-secondary d-flex align-items-center gap-2" disabled>
+            📎 ADJUNTAR CV
+          </button>
+          <small class="text-muted d-block mt-1">Formato: PDF</small>
+        </div>
+      </div>
+
+      <!-- IMAGEN -->
+      <div class="col-md-4 text-center mt-5">
+        <div class="bg-light d-flex justify-content-center align-items-center rounded"
+          style="width: 100%; height: 200px;">
+          <img [src]="vacante.imagen" alt="Imagen" class="img-fluid rounded">
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTONES -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-auto">
+        <button type="submit" class="btn btn-secondary px-4" [disabled]="loading">
+          @if (loading) {
+          <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+          }
+          ENVIAR
         </button>
-        <small class="text-muted d-block mt-1">Formato: PDF</small>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-secondary px-4" (click)="goBack()" [disabled]="loading">Volver</button>
       </div>
     </div>
-
-    <!-- Imagen -->
-    <div class="col-md-4 text-center mt-5">
-      <div class="bg-light d-flex justify-content-center align-items-center rounded"
-        style="width: 100%; height: 200px;">
-        <img [src]="vacante.imagen" alt="Imagen" class="img-fluid rounded" >
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Botones abajo -->
-  <div class="row justify-content-center mt-4">
-    <div class="col-auto">
-      <button class="btn btn-secondary px-4">ENVIAR</button>
-    </div>
-    <div class="col-auto">
-      <button class="btn btn-secondary px-4" (click)="goBack()">Volver</button>
-    </div>
-  </div>
+  </form>
+  }
 </div>

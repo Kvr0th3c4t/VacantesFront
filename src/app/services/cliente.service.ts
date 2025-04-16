@@ -29,4 +29,17 @@ export class ClienteService {
       this.baseUrl + '/api/usuario/verSolicitudes'
     );
   }
+
+  deleteSolicitud(id: string): Observable<any> {
+    return this.httpCliente.delete(
+      `http://localhost:9005/api/usuario/solicitud/eliminar/${id}`
+    );
+  }
+
+  postularVacante(idVacante: string, data: any): Observable<any> {
+    return this.httpCliente.post(
+      `http://localhost:9005/api/usuario/postularVacante/${idVacante}`,
+      data
+    );
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ClienteService } from '../../services/cliente.service';
 import { ISolicitudes } from '../../interfaces/isolicitudes';
 import { CardSolicitudesComponent } from '../../components/card-solicitudes/card-solicitudes.component';
@@ -13,17 +13,18 @@ import { CardSolicitudesComponent } from '../../components/card-solicitudes/card
 export class ClienteSolicitudesComponent {
   private clienteService = inject(ClienteService);
 
-  arrSolicitudes: ISolicitudes[];
+  solicitudes = signal<ISolicitudes[]>([]);
+  cargando = signal(true);
 
-  constructor() {
-    this.arrSolicitudes = [];
-  }
   ngOnInit() {
     this.loadSolicitudes();
   }
+
   loadSolicitudes() {
-    this.clienteService.getSolicitudes().subscribe((data: ISolicitudes[]) => {
-      this.arrSolicitudes = data;
+    this.cargando = signal(true);
+    this.clienteService.getSolicitudes().subscribe((data) => {
+      this.solicitudes.set(data);
+      this.cargando.set(false);
     });
   }
 }

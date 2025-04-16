@@ -20,4 +20,7 @@ export class AuthService {
       user
     );
   }
+  registro(data: any): Observable<any> {
+    return this.httpCliente.post('http://localhost:9005/auth/registro', data);
+  }
 }

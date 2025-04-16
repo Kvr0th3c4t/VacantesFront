@@ -1,6 +1,8 @@
 <div class="container mt-5 mb-5">
 
-  @if (this.userRole == 'CLIENTE') {
+  @if (!cargando) {
+
+  @if (this.userRole === 'CLIENTE') {
   <div class="row justify-content-center">
 
     @for (vacante of arrVacantes; track vacante.idVacante) {
@@ -9,6 +11,7 @@
       </app-card-vacante>
     </article>
     }
+
     @empty {
     <div class="alert alert-danger" role="alert">
       No hay vacantes disponibles.
@@ -18,8 +21,18 @@
   </div>
   }
 
-  @else if (this.userRole == 'ADMON') {
+  @else if (this.userRole === 'ADMON') {
   ESTA ES LA HOME DE ADMIN 😉
+  }
+
+  }
+
+  @else {
+  <!-- Cargando -->
+  <div class="text-center">
+    <div class="spinner-border text-secondary" role="status"></div>
+    <p class="mt-2">Cargando solicitudes...</p>
+  </div>
   }
 
 </div>

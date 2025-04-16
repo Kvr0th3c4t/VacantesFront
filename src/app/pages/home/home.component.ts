@@ -16,6 +16,7 @@ export class HomeComponent {
   arrVacantes: ICardVacante[];
   userRole: string;
   user: IUser;
+  cargando: boolean = true; // Variable para controlar el estado de carga
 
   constructor() {
     this.arrVacantes = [];
@@ -23,11 +24,14 @@ export class HomeComponent {
     this.userRole = this.user.rol || '';
   }
   ngOnInit() {
-    this.loadVacantes();
+    if (this.userRole === 'CLIENTE') {
+      this.loadVacantes(); // Cargar vacantes solo si el rol es CLIENTE
+    }
   }
   loadVacantes() {
     this.clienteService.getAll().subscribe((data: ICardVacante[]) => {
       this.arrVacantes = data;
+      this.cargando = false; // Cambia el estado de carga a falso una vez que los datos se han cargado
     });
   }
 }

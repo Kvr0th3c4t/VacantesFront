@@ -1,10 +1,10 @@
-<div class="card shadow bg-light mb-4 border-0" style="max-width: 700px;">
+<div class="card shadow bg-light mb-4 border-0" [ngClass]="{ 'fade-out': eliminando }" style="max-width: 700px;">
   <div class="row g-0 align-items-center">
 
     <!-- Imagen -->
     <div class="col-md-4 d-flex justify-content-center align-items-center bg-secondary bg-opacity-10">
       <img [src]="solicitud.imagen" alt="Imagen oferta" class="img-fluid p-3"
-        style="width: 100%; height: 100%; object-fit: cover;">
+        style="width: 100%; height: 100%; object-fit: cover;" />
     </div>
 
     <!-- Contenido -->
@@ -16,7 +16,7 @@
             <h6 class="fw-bold mb-0">{{ solicitud.nombreVacante }}</h6>
             <p class="text-muted mb-1">Salario: {{ solicitud.salario }}€</p>
           </div>
-          <span class="badge bg-dark">{{ solicitud.estatus}}</span>
+          <span class="badge bg-dark">{{ solicitud.estatus }}</span>
         </div>
 
         <div>

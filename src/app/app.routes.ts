@@ -5,9 +5,11 @@ import { loginGuard } from './guards/login.guard';
 import { ClienteSolicitudesComponent } from './pages/cliente-solicitudes/cliente-solicitudes.component';
 import { ClienteSolicitarVacanteComponent } from './pages/cliente-solicitar-vacante/cliente-solicitar-vacante.component';
 import { NotFoundComponent } from './pages/not-found-page/not-found-page.component';
+import { RegistroComponent } from './pages/registro/registro.component';
 
 export const routes: Routes = [
   { path: 'login', pathMatch: 'full', component: LoginComponent },
+  { path: 'signup', component: RegistroComponent },
   {
     path: 'usuario',
     canActivate: [loginGuard], // Protege la ruta padre
