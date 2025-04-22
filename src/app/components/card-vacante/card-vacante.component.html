@@ -1,5 +1,5 @@
-<div class="card shadow" style="width: 100%; max-width: 800px; height: 100%; min-height: 300px;">
-  <div class="row g-0 align-items-stretch h-100">
+<div class="card shadow">
+  <div class="row g-0 align-items-stretch h-100 test">
 
     <!-- Imagen -->
     <div class="col-md-5 p-0">
@@ -18,7 +18,7 @@
         <p class="mb-1"><strong>Categoría:</strong> {{ vacante.nombreCategoria }}</p>
         <p class="mb-1"><strong>Empresa:</strong> {{ vacante.nombreEmpresa }}</p>
         <p class="text-muted small mb-3">{{ vacante.descripcion }}</p>
-
+        <!-- Esto solo se mostraría si se entra con rol USUARIO -->
         <a [routerLink]="['/usuario/solicitar', idVacante]" class="btn btn-secondary px-4">
           SOLICITAR
         </a>

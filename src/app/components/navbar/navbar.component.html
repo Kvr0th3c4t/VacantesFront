@@ -25,6 +25,18 @@
             </a>
           </li>
         }
+        @if(this.userRole == 'EMPRESA'){
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['empresa/home']" routerLinkActive="active">
+              <i class="fas fa-home pe-2"></i>HOME
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['empresa/crearVacante']" routerLinkActive="active">
+              <i class="fas fa-plus-circle pe-2"></i>CREAR VACANTE
+            </a>
+          </li>
+        }
       </ul>
     </div>
   </div>

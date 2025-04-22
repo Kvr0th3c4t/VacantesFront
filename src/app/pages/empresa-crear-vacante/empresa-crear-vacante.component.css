@@ -1,0 +1,36 @@
+form.card {
+    max-width: 1000px; 
+    max-height: 520px;
+    margin: 0 auto;
+    padding: 1.5rem !important;
+    font-size: 0.9rem;
+  }
+  
+  form .form-control {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  form label {
+    font-size: 0.8rem;
+  }
+  
+  form textarea {
+    height: 100px !important;
+  }
+  
+  .col-md-6, .col-md-4 {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .col-md-6 {
+      max-width: 60%;
+    }
+    .col-md-4 {
+      max-width: 35%;
+    }
+  }
+  
