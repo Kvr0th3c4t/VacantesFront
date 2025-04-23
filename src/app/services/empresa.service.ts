@@ -6,6 +6,8 @@ import { ISolicitudes } from '../interfaces/isolicitudes';
 import { Iempresa } from '../interfaces/iempresa';
 import { IVacanteDetalle } from '../interfaces/ivacante-detalle';
 import { IVacanteModificar } from '../interfaces/ivacante-modificar';
+import { IVacanteAlta } from '../interfaces/ivacante-alta';
+import { ICategoria } from '../interfaces/icategoria';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +30,7 @@ export class EmpresaService {
   }
 
   // Alta vacante
-  insertVacante(data: IVacanteModificar): Observable<any> {
+  insertVacante(data: IVacanteAlta): Observable<any> {
     return this.httpCliente.post(`${this.baseUrl}/altaVacante`, data);
   }
 
@@ -91,5 +93,9 @@ export class EmpresaService {
     return this.httpCliente.get<ICardVacante>(
       `${this.baseUrl}/getVacante/${idVacante}`
     );
+  }
+
+  getAllCategorias(): Observable<ICategoria[]> {
+    return this.httpCliente.get<ICategoria[]>(`${this.baseUrl}/verCategorias`);
   }
 }

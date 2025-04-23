@@ -99,27 +99,6 @@ export class EmpresaVacanteFormComponent {
         });
       }
     } 
-    else {
-      const res = await firstValueFrom(
-        this.empresaService.insertVacante(vacante)
-      );
-
-      if (res) {
-
-        Swal.fire({
-          title: "Vacante creada!",
-          text: `La vacante ${res.nombre} se ha creado correctamente.`,
-          icon: "success"
-        });
-        this.router.navigate(['/empresa/home']);
-      } else {
-        Swal.fire({
-          title: "Vaya...parece que ha habido un problema",
-          text: ` No se ha podido actualizar al usuario correctamente.`,
-          icon: "error"
-        });
-      }
-    }
   }
 
   checkControl(
