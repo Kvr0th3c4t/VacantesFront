@@ -5,8 +5,6 @@ import { EmpresaService } from '../../services/empresa.service';
 import { ICardVacante } from '../../interfaces/icard-vacante';
 import { firstValueFrom } from 'rxjs';
 import Swal from 'sweetalert2';
-import { ICategoria } from '../../interfaces/icategoria';
-import { CategoriaService } from '../../services/categoria.service';
 import { IVacanteModificar } from '../../interfaces/ivacante-modificar';
 import { IVacanteDetalle } from '../../interfaces/ivacante-detalle';
 
@@ -21,7 +19,6 @@ export class EmpresaVacanteFormComponent {
 
   router = inject(Router);
   empresaService = inject(EmpresaService);
-  categoriaService = inject(CategoriaService);
   ActivatedRoute = inject(ActivatedRoute);
 
   vacantesForm: FormGroup;
