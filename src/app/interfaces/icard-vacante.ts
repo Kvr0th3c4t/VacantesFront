@@ -4,6 +4,7 @@ export interface ICardVacante {
   imagen: string;
   estatus: string;
   nombre: string;
+  detalles: string;
   descripcion: string;
   nombreCategoria: string;
   nombreEmpresa: string;

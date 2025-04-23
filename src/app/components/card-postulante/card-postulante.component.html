@@ -6,6 +6,14 @@
         <h6 class="fw-bold text-uppercase mb-0">
           {{ solicitud.nombrePostulante }} {{ solicitud.apellidosPostulante }}
         </h6>
+        <div class="justify-content-center me-2">
+        @if(solicitud.estado === true) {
+            <span class="badge text-bg-success">ACEPTADA</span>      
+            }
+            @else {
+              <span class="badge text-bg-danger">CANCELADA</span>      
+              }
+              </div>
         <!-- Mejor que se pueda descargar y no mostrar en otra vista!! -->
         <a class="btn btn-sm btn-outline-secondary" 
            [href]="solicitud.curriculum" 

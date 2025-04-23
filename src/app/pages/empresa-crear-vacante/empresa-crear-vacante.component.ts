@@ -8,7 +8,7 @@ import { ICardVacante } from '../../interfaces/icard-vacante';
 @Component({
   selector: 'app-empresa-crear-vacante',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule],
   templateUrl: './empresa-crear-vacante.component.html',
   styleUrl: './empresa-crear-vacante.component.css'
 })

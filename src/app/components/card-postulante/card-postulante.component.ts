@@ -55,6 +55,7 @@ empresaService = inject(EmpresaService);
           // Esperamos a que termine la animación antes de avisar al padre
           setTimeout(() => {
             this.onEliminar.emit();
+            window.location.reload();
           }, 300); // duración igual a la del CSS
         });
       }
@@ -93,6 +94,7 @@ empresaService = inject(EmpresaService);
           // Esperamos a que termine la animación antes de avisar al padre
           setTimeout(() => {
             this.onEliminar.emit();
+            window.location.reload();
           }, 300); // duración igual a la del CSS
         });
       }

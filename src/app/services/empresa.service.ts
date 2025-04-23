@@ -5,6 +5,7 @@ import { ICardVacante } from '../interfaces/icard-vacante';
 import { ISolicitudes } from '../interfaces/isolicitudes';
 import { Iempresa } from '../interfaces/iempresa';
 import { IVacanteDetalle } from '../interfaces/ivacante-detalle';
+import { IVacanteModificar } from '../interfaces/ivacante-modificar';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class EmpresaService {
   }
 
   // Alta vacante
-  altaVacante(data: ICardVacante): Observable<any> {
+  insertVacante(data: IVacanteModificar): Observable<any> {
     return this.httpCliente.post(`${this.baseUrl}/altaVacante`, data);
   }
 
@@ -37,8 +38,11 @@ export class EmpresaService {
   }
 
   // Modificar vacante
-  modificarVacante(id: number, data: ICardVacante): Observable<any> {
-    return this.httpCliente.put(`${this.baseUrl}/modificarVacante/${id}`, data);
+  modificarVacante(idVacante: string, data: IVacanteModificar): Observable<IVacanteModificar> {
+    return this.httpCliente.put<IVacanteModificar>(
+      `${this.baseUrl}/modificarVacante/${idVacante}`,
+      data
+    );
   }
 
   // Ver detalle de vacante
@@ -80,5 +84,12 @@ export class EmpresaService {
   //trae las solicitudes enviadas a una vacante
   getSolicitudesPorVacante(idVacante: number): Observable<any[]> {
     return this.httpCliente.get<any[]>(`${this.baseUrl}/solicitudesPorVacante/${idVacante}`);
+  }
+
+  //buscar vacante por su id
+  getVacanteById(idVacante: string): Observable<ICardVacante> {
+    return this.httpCliente.get<ICardVacante>(
+      `${this.baseUrl}/getVacante/${idVacante}`
+    );
   }
 }

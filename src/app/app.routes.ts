@@ -10,6 +10,7 @@ import { EmpresaSolicitudesComponent } from './pages/empresa-solicitudes/empresa
 import { EmpresaCrearVacanteComponent } from './pages/empresa-crear-vacante/empresa-crear-vacante.component';
 import { EmpresaDetalleVacanteComponent } from './pages/empresa-detalle-vacante/empresa-detalle-vacante.component';
 import { EmpresaVerPostulantesComponent } from './pages/empresa-ver-postulantes/empresa-ver-postulantes.component';
+import { EmpresaVacanteFormComponent } from './pages/empresa-vacante-form/empresa-vacante-form.component';
 
 export const routes: Routes = [
   { path: 'login', pathMatch: 'full', component: LoginComponent },
@@ -105,6 +106,18 @@ export const routes: Routes = [
       {
         path: 'vacante/:id/solicitudes',
         component: EmpresaVerPostulantesComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['EMPRESA'] },
+      },
+      {
+        path: 'nuevaVacante',
+        component: EmpresaVacanteFormComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['EMPRESA'] },
+      },
+      {
+        path: 'updateVacante/:idVacante',
+        component: EmpresaVacanteFormComponent,
         canActivate: [loginGuard], // Protege la ruta hija
         data: { roles: ['EMPRESA'] },
       },
