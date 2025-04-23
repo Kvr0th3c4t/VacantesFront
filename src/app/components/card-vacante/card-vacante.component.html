@@ -12,18 +12,43 @@
     <!-- Contenido alineado vertical y horizontalmente -->
     <div class="col-md-7 d-flex align-items-center justify-content-center">
       <div class="text-center px-3 py-4 w-100">
-
+        <div class="justify-content-end">
+          @if(vacante.estatus === 'CREADA') {
+          <span class="badge text-bg-success">{{ vacante.estatus }}</span>      
+          }
+          @else {
+            <span class="badge text-bg-danger">{{ vacante.estatus }}</span>      
+            }</div>
         <h5 class="fw-bold">{{ vacante.nombre }}</h5>
         <p class="mb-1"><strong>Salario:</strong> {{ vacante.salario }}€</p>
         <p class="mb-1"><strong>Categoría:</strong> {{ vacante.nombreCategoria }}</p>
         <p class="mb-1"><strong>Empresa:</strong> {{ vacante.nombreEmpresa }}</p>
         <p class="text-muted small mb-3">{{ vacante.descripcion }}</p>
+       
         <!-- Esto solo se mostraría si se entra con rol USUARIO -->
-        <a [routerLink]="['/usuario/solicitar', idVacante]" class="btn btn-secondary px-4">
+        @if (this.userRole === 'CLIENTE') {
+        <a [routerLink]="['/usuario/solicitar', vacante.idVacante]" class="btn btn-secondary px-4">
           SOLICITAR
         </a>
+      }
+        @if (this.userRole === 'EMPRESA') {
+          <div class="botones">
+            <button class="btn btn-danger px-4 me-4" (click)="eliminarVacante(vacante.idVacante)">
+              <i class="fa-duotone fa-solid fa-trash"></i>
+            </button>
+            <a [routerLink]="['/empresa/detalleVacante', vacante.idVacante]" class="btn btn-info px-4">
+              <i class="fa-solid fa-circle-info"></i>
+            </a>
+            <a [routerLink]="['/modificarVacante', vacante.idVacante]" class="btn btn-warning px-4 me-4">
+              <i class="fa-solid fa-pencil"></i>
+            </a>
+          </div>
+      }
 
       </div>
+      <div class="icon-block text-center">
+    </div>
+      
     </div>
 
   </div>

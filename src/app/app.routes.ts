@@ -8,6 +8,8 @@ import { NotFoundComponent } from './pages/not-found-page/not-found-page.compone
 import { RegistroComponent } from './pages/registro/registro.component';
 import { EmpresaSolicitudesComponent } from './pages/empresa-solicitudes/empresa-solicitudes.component';
 import { EmpresaCrearVacanteComponent } from './pages/empresa-crear-vacante/empresa-crear-vacante.component';
+import { EmpresaDetalleVacanteComponent } from './pages/empresa-detalle-vacante/empresa-detalle-vacante.component';
+import { EmpresaVerPostulantesComponent } from './pages/empresa-ver-postulantes/empresa-ver-postulantes.component';
 
 export const routes: Routes = [
   { path: 'login', pathMatch: 'full', component: LoginComponent },
@@ -91,6 +93,18 @@ export const routes: Routes = [
       {
         path: 'crearVacante',
         component: EmpresaCrearVacanteComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['EMPRESA'] },
+      },
+      {
+        path: 'detalleVacante/:idVacante',
+        component: EmpresaDetalleVacanteComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['EMPRESA'] },
+      },
+      {
+        path: 'vacante/:id/solicitudes',
+        component: EmpresaVerPostulantesComponent,
         canActivate: [loginGuard], // Protege la ruta hija
         data: { roles: ['EMPRESA'] },
       },

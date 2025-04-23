@@ -1,16 +1,13 @@
 .card {
     width: 100%; 
-    max-width: 800px; 
+    max-width: 200px; 
     height: 100%; 
-    min-height: 300px;
+    min-height: 200px;
+    border-radius: 10px;
 }
 
 .test {
     min-width: 600px;
-}
-
-.fa-solid {
-    color: #ffffff;
 }
 
 .botones {

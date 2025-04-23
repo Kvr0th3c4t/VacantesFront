@@ -1,0 +1,58 @@
+
+<div class="container my-4">
+	<div class="card shadow p-2 mb-0">
+<div class="overflow-hidden contenedor">
+	<div class="container-fluid col-xxl-8">
+		<div class="row flex-lg-nowrap align-items-start g-5">
+			<div class="order-lg-1 w-100">
+				<img style="clip-path: polygon(25% 0%, 100% 0%, 100% 99%, 0% 100%);" [src]="miVacante.imagen" sizes="(max-width: 1080px) 100vw, 1080px" width="2160" height="568">
+			</div>
+			<div class="col-lg-8 col-xl-7 text-center text-lg-start pt-3 mt-5">
+				<div class="lc-block mb-4">
+					<div editable="rich">
+						<h1 class="fw-bold display-3">{{ miVacante.nombre }}</h1>
+                        <h3><span class="badge text-bg-dark">{{ miVacante.salario }} €</span> </h3>
+
+					</div>
+                    <div class="flex-row">
+                        <h5>{{ miVacante.estatus }}</h5>
+                        @if(miVacante.destacado === true) {
+                            <span class="badge text-bg-danger">HOT 🔥🔥🔥</span> 
+                        }
+                        <span class="badge text-bg-warning">{{ miVacante.nombreCategoria }}</span> 
+                        @if(miVacante.estatus === 'CREADA') {
+                            <span class="badge text-bg-success">{{ miVacante.estatus }}</span>      
+                            }
+                            @else {
+                              <span class="badge text-bg-danger">{{ miVacante.estatus }}</span>      
+                              }      
+                              <span class="badge text-bg-warning">{{ miVacante.nombreEmpresa }}</span> 
+                              <span class="badge text-bg-warning">{{ miVacante.pais }}</span> 
+                    </div>
+                    
+				</div>
+
+				<div class="lc-block mb-5">
+					<div editable="rich">
+						<p class="rfs-8">{{ miVacante.descripcion }}</p>
+                        <p class="rfs-8">{{ miVacante.detalles }}</p>
+
+					</div>
+				</div>
+
+				<div class="lc-block mb-2">
+					<a class="btn btn-primary px-4 me-md-2 btn-lg" [routerLink]="['/empresa/vacante', miVacante.idVacante, 'solicitudes']" role="button">
+						{{ arrSolicitudes.length }} Postulantes</a>
+				</div>
+
+				<div>
+					<a class="btn btn-secondary px-4 me-md-2 btn-lg" (click)="goBack()">Volver</a>
+				</div>
+
+			</div>
+		</div>
+		</div>
+		</div><!-- /lc-block -->
+	</div>
+</div>
+ 

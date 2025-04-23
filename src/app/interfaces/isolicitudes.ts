@@ -1,6 +1,8 @@
 export interface ISolicitudes {
   idVacante: string;
   idSolicitud: string;
+  nombrePostulante: string;
+  apellidosPostulante: string;
   imagen: string;
   salario: string;
   estado: boolean;

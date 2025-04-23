@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ICardVacante } from '../interfaces/icard-vacante';
 import { ISolicitudes } from '../interfaces/isolicitudes';
 import { Iempresa } from '../interfaces/iempresa';
+import { IVacanteDetalle } from '../interfaces/ivacante-detalle';
 
 @Injectable({
   providedIn: 'root'
@@ -31,8 +32,8 @@ export class EmpresaService {
   }
 
   // Eliminar vacante
-  eliminarVacante(id: number): Observable<any> {
-    return this.httpCliente.put(`${this.baseUrl}/eliminarVacante/${id}`, {});
+  eliminarVacante(idVacante: string): Observable<any> {
+    return this.httpCliente.put(`${this.baseUrl}/eliminarVacante/${idVacante}`, {});
   }
 
   // Modificar vacante
@@ -41,38 +42,43 @@ export class EmpresaService {
   }
 
   // Ver detalle de vacante
-  verDetalleVacante(id: number): Observable<any> {
-    return this.httpCliente.get(`${this.baseUrl}/detalleVacante/${id}`);
-  }
+  verDetalleVacante(idVacante: string): Observable<IVacanteDetalle> {
+    return this.httpCliente.get<IVacanteDetalle>(`${this.baseUrl}/detalleVacante/${idVacante}`); 
+   }
 
   // Asignar candidato
   asignarCandidato(idVacante: number, email: string): Observable<any> {
     return this.httpCliente.put(`${this.baseUrl}/asignarVacante/${idVacante}/${email}`, {});
   }
 
-  // Ver todas las solicitudes
   getSolicitudes(): Observable<ISolicitudes[]> {
     return this.httpCliente.get<ISolicitudes[]>(
       this.baseUrl + '/verTodasSolicitudes'
     );
   }
+
   // Ver CV
   verCV(idSolicitud: number): Observable<Blob> {
     return this.httpCliente.get(`${this.baseUrl}/verCV/${idSolicitud}`, { responseType: 'blob' });
   }
 
   // Aceptar solicitud
-  aceptarSolicitud(idSolicitud: number): Observable<any> {
+  aceptarSolicitud(idSolicitud: string): Observable<any> {
     return this.httpCliente.put(`${this.baseUrl}/aceptarSolicitud/${idSolicitud}`, {});
   }
 
   // Denegar solicitud
-  denegarSolicitud(idSolicitud: number): Observable<any> {
+  denegarSolicitud(idSolicitud: string): Observable<any> {
     return this.httpCliente.put(`${this.baseUrl}/denegarSolicitud/${idSolicitud}`, {});
   }
 
   // Escribir comentario
   escribirComentario(idSolicitud: number, comentario: string): Observable<any> {
     return this.httpCliente.put(`${this.baseUrl}/escribirComentario/${idSolicitud}`, comentario);
+  }
+
+  //trae las solicitudes enviadas a una vacante
+  getSolicitudesPorVacante(idVacante: number): Observable<any[]> {
+    return this.httpCliente.get<any[]>(`${this.baseUrl}/solicitudesPorVacante/${idVacante}`);
   }
 }
