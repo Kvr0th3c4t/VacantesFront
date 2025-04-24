@@ -1,7 +1,6 @@
 import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
 import { ICardVacante } from '../../interfaces/icard-vacante';
 import { Router, RouterLink } from "@angular/router";
-import { BotoneraComponent } from "../botonera/botonera.component";
 import { IUser } from "../../interfaces/iuser";
 import { EmpresaService } from "../../services/empresa.service";
 import Swal from "sweetalert2";

@@ -1,4 +1,4 @@
-<div class="container mt-5 mb-5">
+<!-- <div class="container mt-5 mb-5">
 
   @if (!cargando) {
 
@@ -47,11 +47,47 @@
   }
 
   @else {
-  <!-- Cargando -->
   <div class="text-center">
     <div class="spinner-border text-secondary" role="status"></div>
     <p class="mt-2">Cargando solicitudes...</p>
   </div>
   }
 
+</div> -->
+<div class="container mt-5">
+  @if (!cargando) {
+  @if (this.userRole === 'CLIENTE' || this.userRole === 'EMPRESA') {
+  <div class="row g-4">
+    @for (vacante of arrVacantes; track vacante.idVacante) {
+    <div class="col-md-6">
+      <article class="d-flex justify-content-center">
+        <app-card-vacante [vacante]="vacante" [id]="vacante.idVacante">
+        </app-card-vacante>
+      </article>
+    </div>
+    }
+
+    @empty {
+    <div class="col-12">
+      <div class="alert alert-danger">
+        No hay vacantes disponibles.
+      </div>
+    </div>
+    }
+  </div>
+  }
+
+  @else if (this.userRole === 'ADMON') {
+  <div class="alert alert-info text-center py-4">
+    ESTA ES LA HOME DE ADMIN 😉
+  </div>
+  }
+  }
+
+  @else {
+  <div class="d-flex flex-column align-items-center justify-content-center py-5">
+    <div class="spinner-border text-primary"></div>
+    <p class="mt-3">Cargando solicitudes...</p>
+  </div>
+  }
 </div>

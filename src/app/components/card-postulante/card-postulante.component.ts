@@ -18,13 +18,13 @@ export class CardPostulanteComponent {
 
 empresaService = inject(EmpresaService);
 
-  eliminando: boolean;
-
   constructor() {
-    this.eliminando = false;
   }
+
   cancelarSolicitud(idSolicitud: string) {
-    Swal.fire({
+    if (this.solicitud.estado !== false) {
+      console.log(this.solicitud.estatus)
+      Swal.fire({
       title: "¿Estás seguro?",
       text: "Esta acción cancelará tu solicitud.",
       icon: "warning",
@@ -36,6 +36,7 @@ empresaService = inject(EmpresaService);
         cancelButton: "btn btn-secondary ms-3",
       },
       buttonsStyling: false,
+
     }).then((result) => {
       if (result.isConfirmed) {
         this.empresaService.denegarSolicitud(idSolicitud).subscribe(() => {
@@ -50,20 +51,27 @@ empresaService = inject(EmpresaService);
             buttonsStyling: false,
           });
 
-          this.eliminando = true;
-
-          // Esperamos a que termine la animación antes de avisar al padre
           setTimeout(() => {
             this.onEliminar.emit();
             window.location.reload();
-          }, 300); // duración igual a la del CSS
+          }, 1000); 
         });
       }
     });
+    } else {
+      Swal.fire({
+
+      text: "Esta solicitud ya esta CANCELADA.",
+      icon: "warning",
+
+    })
+    }
   }
 
   aceptarSolicitud(idSolicitud: string) {
-    Swal.fire({
+    if (this.solicitud.estado !== true) {
+      console.log(this.solicitud.estatus)
+      Swal.fire({
       title: "¿Estás seguro?",
       text: "Esta acción aceptará la solicitud.",
       icon: "warning",
@@ -89,16 +97,22 @@ empresaService = inject(EmpresaService);
             buttonsStyling: false,
           });
 
-          this.eliminando = true;
-
-          // Esperamos a que termine la animación antes de avisar al padre
           setTimeout(() => {
             this.onEliminar.emit();
             window.location.reload();
-          }, 300); // duración igual a la del CSS
+          }, 1000); 
         });
       }
     });
+    } else {
+      Swal.fire({
+      text: "Esta solicitud ya esta ACEPTADA.",
+      icon: "warning",
+      customClass: {
+        cancelButton: "btn btn-secondary ms-3",
+      },
+    })
+    }
   }
 }
 
