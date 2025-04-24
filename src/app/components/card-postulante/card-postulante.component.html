@@ -1,0 +1,41 @@
+<div class="card shadow h-100 w-100">
+  <!-- Badge en la esquina superior derecha -->
+  <div class="card-badge">
+    @if (solicitud.estado === true) {
+    <span class="badge text-bg-success">ACEPTADA</span>
+    } @else {
+    <span class="badge text-bg-danger">CANCELADA</span>
+    }
+  </div>
+
+  <div class="card-body d-flex flex-column">
+    <!-- Encabezado con nombre del postulante -->
+    <div class="card-header-custom mb-3">
+      <h6 class="fw-bold text-uppercase">
+        {{ solicitud.nombrePostulante }} {{ solicitud.apellidosPostulante }}
+      </h6>
+    </div>
+
+    <!-- Comentarios o descripción -->
+    <div class="card-content flex-grow-1">
+      <p class="text-muted small">
+        {{ solicitud.comentarios || 'Sin comentarios disponibles.' }}
+      </p>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="card-actions d-flex justify-content-center gap-3">
+      <button class="btn btn-success" (click)="aceptarSolicitud(solicitud.idSolicitud)" title="Aceptar">
+        <i class="fa-solid fa-circle-check"></i>
+      </button>
+      <button class="btn btn-danger" (click)="cancelarSolicitud(solicitud.idSolicitud)" title="Rechazar">
+        <i class="fa-solid fa-square-xmark"></i>
+      </button>
+      <a class="btn btn-cv" [href]="solicitud.curriculum" [routerLink]="['/empresa/verCv', solicitud.idSolicitud]"
+        target="_blank" title="Ver CV">
+        <i class="fa-solid fa-download me-1"></i> CV
+      </a>
+    </div>
+  </div>
+</div>
+  

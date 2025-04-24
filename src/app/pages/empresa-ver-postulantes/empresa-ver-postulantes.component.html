@@ -1,0 +1,27 @@
+<div class="container mt-5 mb-5">
+
+@if(solicitudes.length === 0) {
+    <div>
+      <p>No hay solicitudes todavía.</p>
+    </div>
+    }
+    
+    @if (solicitudes.length === 0) {
+        <div class="text-center mt-4">
+          <p>No hay solicitudes todavía.</p>
+        </div>
+      }
+      <div class="row justify-content-center">
+        @for (solicitud of solicitudes; track solicitud.idSolicitud) {
+            <article class="col-12 col-md-3 mb-2 d-flex justify-content-center">
+              <app-card-postulante [solicitud]="solicitud"></app-card-postulante>
+            </article>
+        }
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-secondary px-4" (click)="goBack()">Volver</button>
+      </div>
+</div>
+      
+     
+    

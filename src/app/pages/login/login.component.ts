@@ -55,6 +55,9 @@ export class LoginComponent {
           case 'ADMON':
             this.router.navigate(['/admin/home']);
             break;
+            case 'EMPRESA':
+            this.router.navigate(['/empresa/home']);
+            break;
           default:
             console.error('Rol no reconocido:', rol);
             break;
