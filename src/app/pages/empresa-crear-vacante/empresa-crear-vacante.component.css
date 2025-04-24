@@ -1,36 +1,253 @@
+/* Estilos de tarjeta */
+.card {
+  width: 100%;
+  max-width: 900px;
+  min-height: 300px;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  margin: 1.5rem auto;
+  background-color: #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09);
+}
+
+.test {
+  min-width: 600px;
+}
+
+/* Imagen y figura */
+figure {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0;
+  border: none;
+  position: relative;
+}
+
+figure img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+figure:hover img {
+  transform: scale(1.05);
+}
+
+/* Contenido */
+.col-md-7 {
+  padding: 2rem;
+}
+
+h5 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: var(--color-text-primary);
+}
+
+p {
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+p strong {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.text-muted {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  max-height: 80px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-top: 0.75rem;
+}
+
+/* Badges y status */
+.badge {
+  padding: 0.55rem 1rem;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  border-radius: 20px;
+}
+
+.text-bg-success {
+  background-color: var(--color-success);
+}
+
+.text-bg-danger {
+  background-color: var(--color-danger);
+}
+
+/* Botones */
+.btn {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.btn-secondary {
+  background-color: var(--color-primary);
+  color: white;
+  width: auto;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(10, 132, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(10, 132, 255, 0.2);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+}
+
+.btn-danger:hover {
+  background-color: rgba(255, 59, 48, 0.9);
+  box-shadow: 0 4px 12px rgba(255, 59, 48, 0.2);
+}
+
+.btn-info {
+  background-color: var(--color-primary);
+}
+
+.btn-info:hover {
+  background-color: rgba(10, 132, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(10, 132, 255, 0.2);
+}
+
+.btn-warning {
+  background-color: var(--color-warning);
+}
+
+.btn-warning:hover {
+  background-color: rgba(255, 214, 10, 0.9);
+  box-shadow: 0 4px 12px rgba(255, 214, 10, 0.2);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.fa-solid {
+  color: #ffffff;
+}
+
+/* Estructura de botones */
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.botones .btn {
+  width: auto;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+}
+
+/* Estilos de formulario */
 form.card {
-    max-width: 1000px; 
-    max-height: 520px;
-    margin: 0 auto;
-    padding: 1.5rem !important;
-    font-size: 0.9rem;
+  max-width: 1000px;
+  max-height: 520px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+}
+
+form .form-control {
+  padding: 0.65rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+form .form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.15);
+}
+
+form label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+form textarea {
+  height: 100px;
+  resize: none;
+}
+
+form .btn {
+  padding: 0.65rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.col-md-6,
+.col-md-4 {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.75rem;
+}
+
+/* Media queries */
+@media (min-width: 768px) {
+  .col-md-6 {
+    max-width: 60%;
   }
-  
-  form .form-control {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.9rem;
+
+  .col-md-4 {
+    max-width: 35%;
   }
-  
-  form label {
-    font-size: 0.8rem;
-  }
-  
-  form textarea {
-    height: 100px !important;
-  }
-  
-  .col-md-6, .col-md-4 {
-    flex: 0 0 auto;
-    width: 100%;
+}
+
+@media (max-width: 768px) {
+  .card {
     max-width: 100%;
   }
-  
-  @media (min-width: 768px) {
-    .col-md-6 {
-      max-width: 60%;
-    }
-    .col-md-4 {
-      max-width: 35%;
-    }
+
+  .col-md-5 {
+    height: 200px;
   }
-  
+
+  .botones {
+    flex-wrap: wrap;
+  }
+
+  form.card {
+    max-height: none;
+    padding: 1rem !important;
+  }
+}
