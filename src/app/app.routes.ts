@@ -12,6 +12,7 @@ import { EmpresaDetalleVacanteComponent } from './pages/empresa-detalle-vacante/
 import { EmpresaVerPostulantesComponent } from './pages/empresa-ver-postulantes/empresa-ver-postulantes.component';
 import { EmpresaVacanteFormComponent } from './pages/empresa-vacante-form/empresa-vacante-form.component';
 import { EmpresaVacanteFormAltaComponent } from './pages/empresa-vacante-form-alta/empresa-vacante-form-alta.component';
+import { EmpresaEditPerfilComponent } from './pages/empresa-edit-perfil/empresa-edit-perfil.component';
 
 export const routes: Routes = [
   { path: 'login', pathMatch: 'full', component: LoginComponent },
@@ -119,6 +120,12 @@ export const routes: Routes = [
       {
         path: 'updateVacante/:idVacante',
         component: EmpresaVacanteFormComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['EMPRESA'] },
+      },
+      {
+        path: 'editarPerfil',
+        component: EmpresaEditPerfilComponent,
         canActivate: [loginGuard], // Protege la ruta hija
         data: { roles: ['EMPRESA'] },
       },

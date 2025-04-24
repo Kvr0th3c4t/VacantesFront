@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ICardVacante } from '../interfaces/icard-vacante';
@@ -8,6 +8,7 @@ import { IVacanteDetalle } from '../interfaces/ivacante-detalle';
 import { IVacanteModificar } from '../interfaces/ivacante-modificar';
 import { IVacanteAlta } from '../interfaces/ivacante-alta';
 import { ICategoria } from '../interfaces/icategoria';
+import { IEmpresaModificar } from '../interfaces/iempresa-modificar';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +26,15 @@ export class EmpresaService {
   }
 
   // Modificar empresa
-  modificarEmpresa(data: Iempresa): Observable<any> {
-    return this.httpCliente.put(`${this.baseUrl}/modificarEmpresa`, data);
+  modificarEmpresa(data: IEmpresaModificar): Observable<IEmpresaModificar> {
+    return this.httpCliente.put<IEmpresaModificar>(
+      `${this.baseUrl}/modificarEmpresa`,
+      data
+    );
+  }
+  //muestra datos del perfil del token
+  getPerfilEmpresa(): Observable<IEmpresaModificar> {
+    return this.httpCliente.get<IEmpresaModificar>(`${this.baseUrl}/perfilEmpresa`);
   }
 
   // Alta vacante
