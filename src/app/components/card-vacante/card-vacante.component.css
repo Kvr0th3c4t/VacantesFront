@@ -102,7 +102,7 @@ p strong {
 }
 
 .btn-secondary:hover {
-    background-color: rgba(var(--color-primary-rgb), 0.5);
+    background-color: #0ABDFF;
     transform: translateY(-2px);
 }
 

@@ -1,9 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
+    @if(this.userRole == 'CLIENTE'){
     <a class="navbar-brand d-flex align-items-center" [routerLink]="['/usuario/home']">
       <img src="logo.png" alt="Logo" style="height: 40px;" />
       <span class="ms-2">APP Users</span>
     </a>
+  }
+
+  @else if(this.userRole == 'EMPRESA'){
+    <a class="navbar-brand d-flex align-items-center" [routerLink]="['/empresa/home']">
+      <img src="edificios.png" alt="Logo" style="height: 40px;" />
+      <span class="ms-2">APP Empresas</span>
+    </a>
+  }
+
+  @else{
+    <a class="navbar-brand d-flex align-items-center" [routerLink]="['/admon/home']">
+      <img src="ordenador.png" alt="Logo" style="height: 40px;" />
+      <span class="ms-2">APP Admon</span>
+    </a>
+  }
+
     <button class="btn btn-outline-light ms-3" (click)="logout()" title="Cerrar sesión">
       <i class="fas fa-sign-out-alt"></i>  CERRAR SESION
     </button>
