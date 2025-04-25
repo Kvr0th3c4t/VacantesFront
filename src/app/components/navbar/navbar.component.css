@@ -1,0 +1,16 @@
+/* Desactiva el display por defecto del menú */
+.no-js-dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 0.5rem 0;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    z-index: 1000;
+  }
+  
+  /* Muestra el menú cuando se hace hover en el contenedor */
+  .no-js-dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  

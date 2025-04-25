@@ -1,0 +1,206 @@
+/* Mantenemos el fondo como lo tienes configurado */
+/* .bg-image {
+    background-image: url('https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 93.5vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.vacante-detail-container{
+    margin: 0 auto;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+}
+/* Eliminamos el contenedor negro y añadimos un overlay sutil */
+.vacante-overlay {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2rem;
+}
+
+/* Wrapper del contenido - más ancho y con más transparencia */
+.vacante-content-wrapper {
+    max-width: 1000px;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.85);
+    /* Más transparente */
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Estilos del encabezado */
+.vacante-header {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vacante-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+/* Badge de salario */
+.salary-badge {
+    display: inline-block;
+    background-color: var(--color-dark-bg);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+/* Contenedor de badges */
+.badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilos de badges */
+.badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.5rem 0.85rem;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+}
+
+.badge-hot {
+    background-color: var(--color-danger);
+    color: white;
+}
+
+.badge-category {
+    background-color: var(--color-warning);
+    color: var(--color-text-primary);
+}
+
+.badge-success {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.badge-danger {
+    background-color: var(--color-danger);
+    color: white;
+}
+
+.badge-company {
+    background-color: var(--color-warning);
+    color: var(--color-text-primary);
+}
+
+.badge-location {
+    background-color: var(--color-warning);
+    color: var(--color-text-primary);
+}
+
+/* Descripción y detalles */
+.vacante-description {
+    margin-bottom: 2.5rem;
+}
+
+.vacante-description p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.details-section {
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Botones de acción */
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.75rem;
+    border-radius: 20px;
+    transition: all 0.25s ease;
+    letter-spacing: 0.02em;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: rgba(10, 132, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(10, 132, 255, 0.2);
+}
+
+.btn-secondary {
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: #d8d8de;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Media queries */
+@media (max-width: 992px) {
+    .vacante-content-wrapper {
+        width: 95%;
+        padding: 2rem;
+    }
+
+    .vacante-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .vacante-overlay {
+        padding: 1.5rem 1rem;
+    }
+
+    .vacante-content-wrapper {
+        padding: 1.5rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .vacante-description p {
+        font-size: 1rem;
+    }
+}

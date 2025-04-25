@@ -1,0 +1,50 @@
+<div class="text-center bg-image rounded-3" style="background-image: url('{{miVacante.imagen}}');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 93.5vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;">
+	<div class="vacante-detail-container">
+		<div class="vacante-content-wrapper">
+			<div class="vacante-header">
+				<h1 class="vacante-title">{{ miVacante.nombre }}</h1>
+				<div class="salary-badge">
+					<span>{{ miVacante.salario }} €</span>
+				</div>
+			</div>
+	
+			<div class="badge-container">
+				@if(miVacante.destacado === true) {
+				<span class="badge badge-hot">HOT 🔥</span>
+				}
+				<span class="badge badge-category">{{ miVacante.nombreCategoria }}</span>
+				@if(miVacante.estatus === 'CREADA') {
+				<span class="badge badge-success">{{ miVacante.estatus }}</span>
+				} @else {
+				<span class="badge badge-danger">{{ miVacante.estatus }}</span>
+				}
+				<span class="badge badge-company">{{ miVacante.nombreEmpresa }}</span>
+				<span class="badge badge-location">{{ miVacante.pais }}</span>
+			</div>
+	
+			<div class="vacante-description">
+				<p>{{ miVacante.descripcion }}</p>
+				<div class="details-section">
+					<p>{{ miVacante.detalles }}</p>
+				</div>
+			</div>
+	
+			<div class="action-buttons">
+				<a class="btn btn-primary" [routerLink]="['/empresa/vacante', miVacante.idVacante, 'solicitudes']">
+					{{ arrSolicitudes.length }} Postulantes
+				</a>
+				<a class="btn btn-secondary" (click)="goBack()">Volver</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Hero -->
+
