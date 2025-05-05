@@ -18,13 +18,10 @@ export class CRUDUsuariosComponent {
       arrUsuarios: IUsuarioDetalle[];
       
       cargando: boolean = true;
-      userRole: string;
-      user: IUsuarioDetalle;
-    
+
       constructor() {
         this.arrUsuarios = [];
-        this.user = JSON.parse(localStorage.getItem("user")!); 
-		    this.userRole = this.user.rol || "";
+        
       }
       ngOnInit() {
 

@@ -1,39 +1,49 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import Swal from 'sweetalert2';
-import { IUsuarioDetalle } from '../../interfaces/iusuario-detalle';
 import { AdminService } from '../../services/admin.service';
+import { ICategoria } from '../../interfaces/icategoria';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-usuarios-crudtable',
+  selector: 'app-categorias-crudtable',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './usuarios-crudtable.component.html',
-  styleUrl: './usuarios-crudtable.component.css'
+  templateUrl: './categorias-crudtable.component.html',
+  styleUrl: './categorias-crudtable.component.css'
 })
-export class UsuariosCRUDTableComponent {
-  @Input() usuario!: IUsuarioDetalle;
+export class CategoriasCRUDTableComponent {
+  @Input() categoria!: ICategoria;
   @Output() onEliminar = new EventEmitter<void>();
   
   eliminando: boolean;
-  avatarUrl: string;
-  userRole: string;
-  user: IUsuarioDetalle;
-        
+  iconoCategorias: string[];
+  iconoAleatorio: string;
+
   constructor() {
     this.eliminando = false;
-    this.avatarUrl = '';
-    this.user = JSON.parse(localStorage.getItem("user")!); 
-    this.userRole = this.user.rol || "";
-    }
-  adminService = inject(AdminService)
-  
-  ngOnInit(): void {
-    this.generarAvatarAleatorio()
-    
-  }
+    this.iconoCategorias = [
+      'bi bi-pc-display fs-3',
+      'bi bi-phone fs-3',
+      'bi bi-camera fs-3',
+      'bi bi-headphones fs-3',
+      'bi bi-controller fs-3',
+      'bi bi-laptop fs-3',
+      'bi bi-printer fs-3',
+      'bi bi-router fs-3',
+      'bi bi-watch fs-3',
+      'bi bi-speaker fs-3',
+      'bi bi-tv fs-3',
+      'bi bi-tablet fs-3',
+      'bi bi-keyboard fs-3',
+      'bi bi-mouse fs-3',
+      'bi bi-cpu fs-3'
+    ];
+    this.iconoAleatorio = this.obtenerIconoAleatorio()
 
-  eliminarUsuario(email: string) {
+    }
+  adminService = inject(AdminService);
+  
+  eliminarCategoria(idCategoria: string) {
         Swal.fire({
           title: "¿Estás seguro?",
           text: "Esta acción eliminará la empresa.",
@@ -48,7 +58,7 @@ export class UsuariosCRUDTableComponent {
           buttonsStyling: false,
         }).then((result) => {
           if (result.isConfirmed) {
-            this.adminService.eliminarUsuario(email).subscribe(() => {
+            this.adminService.eliminarCategoria(idCategoria).subscribe(() => {
               Swal.fire({
                 icon: "success",
                 title: "Eliminada",
@@ -71,9 +81,9 @@ export class UsuariosCRUDTableComponent {
           }
         });
       }
-  generarAvatarAleatorio(): void {
-    const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
-    
-    this.avatarUrl = `https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava${numeroAleatorio}.webp`;
+  obtenerIconoAleatorio(): string {
+    const indiceAleatorio = Math.floor(Math.random() * this.iconoCategorias.length);
+    return this.iconoCategorias[indiceAleatorio];
   }
 }
+

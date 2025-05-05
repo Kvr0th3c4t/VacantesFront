@@ -50,8 +50,4 @@ export class ClienteService {
       data
     );
   }
-  
-  eliminarUsuario(email: string): Observable<any>{
-    return this.httpCliente.put(`${this.baseUrl}/eliminarUsuario/${email}`, {});
-  }
 }

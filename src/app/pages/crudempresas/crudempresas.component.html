@@ -1,5 +1,5 @@
-<section class="container mt-5">
-  
+<section class="container-fluid p-5 m-auto">
+    
     @for (empresa of arrEmpresas; track empresa.idEmpresa){
         <app-empresas-crudtable [empresa]="empresa" [id]="empresa.idEmpresa"></app-empresas-crudtable>
     }

@@ -37,6 +37,10 @@ httpCliente = inject(HttpClient);
   getAllUsers(): Observable<IUser[]> {
     return this.httpCliente.get<IUser[]>(`${this.baseUrl}/verUsuarios`);
   }
+
+  eliminarUsuario(email: string): Observable<any>{
+    return this.httpCliente.put(`${this.baseUrl}/eliminarUsuario/${email}`, {});
+  }
   
   //Vacantes
   getAllVacantes(): Observable<ICardVacante[]> {
@@ -52,5 +56,9 @@ httpCliente = inject(HttpClient);
   getAllCategorias(): Observable<ICategoria[]>{
     return this.httpCliente.get<ICategoria[]>(`${this.baseUrl}/verCategorias`);
   }
+
+  eliminarCategoria(idCategoria: string): Observable<any>{
+    return this.httpCliente.delete(`${this.baseUrl}/eliminarCategoria/${idCategoria}`)
+  } 
 
 }
