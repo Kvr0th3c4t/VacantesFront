@@ -1,53 +1,203 @@
-/* data-table.component.css */
 .table {
+    --bs-table-hover-bg: rgba(var(--color-primary-rgb), 0.05);
     margin-bottom: 0;
 }
 
-.table th {
-    font-weight: 500;
-    color: #6c757d;
-    border-top: none;
+.table thead th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
     padding: 0.75rem 1rem;
+    border-bottom: 2px solid rgba(var(--color-primary-rgb), 0.1);
 }
 
-.table td {
+.table tbody td {
+    padding: 0.75rem 1rem;
     vertical-align: middle;
-    padding: 1rem;
-    border-color: #f5f5f5;
-}
-
-.badge {
-    font-weight: 500;
-    font-size: 0.75rem;
-}
-
-.badge i {
-    font-size: 0.5rem;
-}
-
-.avatar {
-    position: relative;
-}
-
-.pagination .page-link {
-    border-radius: 0.25rem;
-    margin: 0 0.125rem;
-    color: #6c757d;
-}
-
-.pagination .page-item.active .page-link {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-    color: white;
+    border-bottom: 1px solid rgba(var(--color-text-primary-rgb), 0.08);
 }
 
 .card {
-    border-radius: 0.5rem;
     overflow: hidden;
+    transition: box-shadow 0.3s ease;
 }
 
-.form-select,
-.form-control,
-.btn {
-    border-radius: 0.25rem;
+.card:hover {
+    box-shadow: 0 5px 15px rgba(var(--color-text-primary-rgb), 0.1) !important;
+}
+
+.table-responsive {
+    border-radius: inherit;
+}
+
+.table td h6 {
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.badge {
+    padding: 0.4rem 0.8rem;
+    font-weight: 500;
+}
+
+.badge i {
+    opacity: 0.8;
+}
+
+.botones {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.botones .btn {
+    font-size: 0.7rem;
+    font-weight: bolder;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border: none;
+    width: auto;
+    min-width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-bg);
+}
+
+.btn-secondary {
+    background-color: var(--color-primary);
+    width: auto;
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+}
+
+.btn-info {
+    background-color: var(--color-primary);
+}
+
+.btn-warning {
+    background-color: var(--color-warning);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--color-text-primary);
+}
+
+.fa-solid {
+    color: var(--color-bg);
+}
+
+.table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table th {
+    padding: 1rem;
+    vertical-align: middle;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.table td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+    width: 7%;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+    width: 10%;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+    width: 15%;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+    width: 15%;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+    width: 10%;
+}
+
+.table th:nth-child(6),
+.table td:nth-child(6) {
+    width: 15%;
+}
+
+.table th:nth-child(7),
+.table td:nth-child(7) {
+    width: 15%;
+}
+
+.table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table td:nth-child(3),
+.table td:nth-child(4) {
+    white-space: normal;
+}
+
+.table td h6 {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.badge {
+    display: inline-block;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.botones {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+.table .botones .btn {
+    padding: 0.25rem 0.5rem;
+    min-width: auto;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .table .botones .btn span {
+        display: none;
+    }
+
+    .table .botones .btn {
+        width: 32px;
+        height: 32px;
+        padding: 0.25rem;
+    }
+
+    .botones {
+        justify-content: center;
+    }
 }
