@@ -13,11 +13,12 @@ export class ClienteService {
   private baseUrl: string = 'http://localhost:9005';
   constructor() {}
 
-  getAll(): Observable<ICardVacante[]> {
+  getAll():Observable<ICardVacante[]> {
     return this.httpCliente.get<ICardVacante[]>(
       this.baseUrl + '/api/usuario/verVacanteCreada'
     );
   }
+
   getById(idVavante: string): Observable<ICardVacante> {
     return this.httpCliente.get<ICardVacante>(
       this.baseUrl + '/api/usuario/vacantes/' + idVavante

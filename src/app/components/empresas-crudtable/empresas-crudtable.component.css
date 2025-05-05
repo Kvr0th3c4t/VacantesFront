@@ -1,0 +1,53 @@
+.botones {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.botones .btn {
+    font-size: 0.7rem;
+    font-weight:bolder;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border: none;
+    width: auto;
+    min-width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-bg);
+}
+
+.btn-secondary {
+    background-color: var(--color-primary);
+    
+    width: auto;
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+}
+
+.btn-info {
+    background-color: var(--color-primary);
+}
+
+.btn-warning {
+    background-color: var(--color-warning);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--color-text-primary);
+}
+
+.fa-solid {
+    color: var(--color-bg);
+}

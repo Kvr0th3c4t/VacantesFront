@@ -13,6 +13,9 @@ import { EmpresaVerPostulantesComponent } from './pages/empresa-ver-postulantes/
 import { EmpresaVacanteFormComponent } from './pages/empresa-vacante-form/empresa-vacante-form.component';
 import { EmpresaVacanteFormAltaComponent } from './pages/empresa-vacante-form-alta/empresa-vacante-form-alta.component';
 import { EmpresaEditPerfilComponent } from './pages/empresa-edit-perfil/empresa-edit-perfil.component';
+import { CRUDEmpresasComponent } from './pages/crudempresas/crudempresas.component';
+import { CRUDUsuariosComponent } from './pages/crudusuarios/crudusuarios.component';
+import { CRUDCategoriasComponent } from './pages/crudcategorias/crudcategorias.component';
 
 export const routes: Routes = [
   { path: 'login', pathMatch: 'full', component: LoginComponent },
@@ -64,11 +67,24 @@ export const routes: Routes = [
         data: { roles: ['ADMON'] },
       },
       {
-        path: 'solicitudes',
-        component: EmpresaSolicitudesComponent,
+        path: 'CRUDEmpresas',
+        component: CRUDEmpresasComponent,
         canActivate: [loginGuard], // Protege la ruta hija
-        data: { roles: ['EMPRESA'] },
+        data: { roles: ['ADMON'] },
       },
+      {
+        path: 'CRUDUsuarios',
+        component: CRUDUsuariosComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'CRUDCategorias',
+        component: CRUDCategoriasComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+
     ],
   },
   {

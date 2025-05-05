@@ -7,6 +7,5 @@ export interface Iempresa {
     nombre: string,
     direccionFiscal: string,
     pais: string,
-    user: IUser[];
-
+    email:string
 }
