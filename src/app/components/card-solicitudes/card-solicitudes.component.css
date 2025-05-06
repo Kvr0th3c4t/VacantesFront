@@ -1,4 +1,119 @@
+.card {
+  background-color: rgba(22, 41, 54, 0.95) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 20px rgba(39, 233, 181, 0.3) !important;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 1;
+  box-shadow: inset 0 0 0 2px transparent;
+  background-image: linear-gradient(to right,
+      var(--primary-teal),
+      var(--accent-blue));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1px;
+}
+
+.col-md-4 {
+  background-color: rgba(59, 82, 101, 0.3) !important;
+  border-right: 1px solid rgba(39, 233, 181, 0.2);
+}
+
+.card-body {
+  color: var(--accent-light) !important;
+  padding: 1.5rem;
+}
+
+.fw-bold {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem !important;
+}
+
+.text-muted {
+  color: var(--accent-light) !important;
+  opacity: 0.8;
+}
+
+.badge {
+  background: linear-gradient(to right, var(--primary-teal), var(--accent-blue)) !important;
+  color: var(--primary-dark-blue) !important;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.fw-bold.mt-2 {
+  color: var(--primary-teal);
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+}
+
+.text-muted.small {
+  background-color: rgba(59, 82, 101, 0.3);
+  padding: 0.8rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--primary-teal);
+  margin-bottom: 1.5rem !important;
+  color: var(--accent-light) !important;
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background: linear-gradient(to right, var(--primary-red), #b52b38);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+  margin-top: 0.5rem;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+}
+
+.btn-secondary i {
+  color: white;
+}
+
 .fade-out {
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .card {
+    max-width: 95%;
+  }
+
+  .col-md-4 {
+    height: 180px;
+  }
+
+  .btn-secondary {
+    width: 100%;
+  }
 }
