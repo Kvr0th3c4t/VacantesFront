@@ -16,6 +16,7 @@ export class CardVacanteComponent {
 
 	@Input() vacante!: ICardVacante;
 	@Output() onEliminar = new EventEmitter<void>();
+	
 	userRole: string;
 	router = inject(Router);
 	user: IUser;

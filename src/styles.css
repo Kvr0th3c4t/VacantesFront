@@ -1,15 +1,35 @@
 :root {
+    /* Colores base */
     --primary-blue: #051824;
     --primary-teal: #27E9B5;
     --primary-navy: #3B5265;
     --primary-dark-blue: #162936;
     --primary-red: #DC3545;
-
     --accent-blue: #0A84FF;
     --accent-yellow: #FFD60A;
     --accent-green: #198754;
     --accent-dark: #010D14;
     --accent-light: #D3E5F8;
+
+    --gradient-primary: linear-gradient(135deg, var(--primary-teal), var(--accent-blue));
+    --gradient-dark: linear-gradient(45deg, var(--primary-blue), var(--primary-navy));
+    --gradient-light: linear-gradient(135deg, var(--accent-light), #ffffff);
+
+    --gradient-button-primary: linear-gradient(144deg, var(--primary-teal), var(--primary-navy) 50%, var(--accent-blue));
+    --gradient-button-success: linear-gradient(144deg, var(--primary-teal), var(--accent-green));
+    --gradient-button-warning: linear-gradient(144deg, var(--accent-yellow), #FFA500);
+    --gradient-button-danger: linear-gradient(144deg, var(--primary-red), #9E1B25);
+
+    --gradient-card-header: linear-gradient(to right, var(--primary-dark-blue), var(--primary-navy));
+    --gradient-background-dark: linear-gradient(135deg, var(--primary-blue), var(--primary-dark-blue) 70%);
+    --gradient-background-light: linear-gradient(135deg, #f8f9fa, var(--accent-light));
+
+    --gradient-overlay-dark: linear-gradient(rgba(1, 13, 20, 0.8), rgba(1, 13, 20, 0.6));
+    --gradient-overlay-blue: linear-gradient(rgba(10, 132, 255, 0.8), rgba(10, 132, 255, 0.4));
+    --gradient-overlay-teal: linear-gradient(rgba(39, 233, 181, 0.8), rgba(39, 233, 181, 0.4));
+
+    --gradient-border-glow: linear-gradient(to right, var(--primary-teal), var(--accent-blue));
+    --gradient-text-highlight: linear-gradient(to right, var(--primary-teal), var(--accent-blue));
 
     --background-dark: var(--primary-blue);
     --background-light: var(--accent-light);
@@ -21,14 +41,13 @@
     --success-color: var(--accent-green);
     --warning-color: var(--accent-yellow);
     --danger-color: var(--primary-red);
-
     --overlay-dark: rgba(1, 13, 20, 0.7);
     --overlay-light: rgba(211, 229, 248, 0.7);
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+    src: url('/assets/fonts/Montserrat-VariableFont_wght.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -36,7 +55,7 @@
 
 @font-face {
     font-family: 'Nunito';
-    src: url('/assets/fonts/Nunito-Italic-VariableFont_wght.ttf') format('woff2');
+    src: url('/assets/fonts/Nunito-Italic-VariableFont_wght.ttf') format('ttf');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -45,7 +64,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--primary-dark-blue);  
+    background: var(--gradient-dark) !important;  
 }
 
 * {

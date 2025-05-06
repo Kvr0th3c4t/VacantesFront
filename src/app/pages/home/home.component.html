@@ -1,7 +1,7 @@
-<div class="container mt-5">
+<div class="divFondo">
   @if (!cargando) {
   @if (this.userRole === 'CLIENTE' || this.userRole === 'EMPRESA') {
-  <div class="row g-4">
+  <div class="row g-4 mt-4">
     @for (vacante of arrVacantes; track vacante.idVacante) {
     <div class="col-md-6">
       <article class="d-flex justify-content-center">
@@ -22,7 +22,7 @@
   }
 
   }@if (this.userRole === 'ADMON') {
-  <div class="container mt-5">
+  <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h4 class="mb-0">Administración de Empresas</h4>
     </div>

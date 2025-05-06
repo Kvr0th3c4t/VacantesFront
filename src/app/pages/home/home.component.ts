@@ -47,13 +47,15 @@ export class HomeComponent {
 
 		if (this.userRole === "EMPRESA") {
 			this.loadVacantesE(); // Cargar vacantes solo si el rol es EMPRESA
+		} else {
+			this.loadEmpresas();
+			this.loadVacantesAdmin();
+			this.loadUsuarios();
+			this.loadSolicitudes();
+			this.loadCategorias();
+			this.getVacantesCategorias();
 		}
-		this.loadEmpresas();
-		this.loadVacantesAdmin();
-		this.loadUsuarios();
-		this.loadSolicitudes();
-		this.loadCategorias();
-		this.getVacantesCategorias();
+		
 	}
 
 	//Vacantes

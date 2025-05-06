@@ -5,9 +5,17 @@
     height: 350px;
     overflow: hidden;
     border-radius: 16px;
-    box-shadow: 0 4px 24px var(--color-border);
+    box-shadow: 0 4px 24px rgba(39, 233, 181, 0.5);
     margin: 1rem auto;
-    border: none;
+    border: 1px solid var(--primary-teal);
+    background-color: rgba(211, 229, 248, 0.9);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fixed-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(39, 233, 181, 0.7);
 }
 
 .card-badge {
@@ -47,13 +55,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 1.2rem;
-    color: var(--color-text-primary);
+    color: var(--primary-blue);
 }
 
 p {
-    color: var(--color-text-secondary);
+    color: var(--primary-blue);
     font-size: 0.95rem;
     line-height: 1.4;
     margin-bottom: 0.5rem;
@@ -61,11 +69,11 @@ p {
 
 p strong {
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--primary-dark-blue);
 }
 
 .description {
-    color: var(--color-text-secondary);
+    color: var(--primary-blue);
     font-size: 0.9rem;
     overflow: hidden;
     display: -webkit-box;
@@ -80,53 +88,66 @@ p strong {
     font-size: 0.75rem;
     letter-spacing: 0.02em;
     border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .text-bg-success {
-    background-color: var(--color-success);
+    background-color: var(--success-color);
 }
 
 .text-bg-danger {
-    background-color: var(--color-danger);
+    background-color: var(--danger-color);
 }
 
 .btn {
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
+    /* Aumentado para mejor legibilidad */
     padding: 0.6rem 1.5rem;
     border-radius: 20px;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-secondary {
-    background-color: var(--color-primary);
-    color: var(--color-bg);
+    background-color: var(--primary-teal);
+    color: var(--primary-dark-blue);
     width: auto;
 }
 
 .btn-danger {
-    background-color: var(--color-danger);
+    background-color: var(--danger-color);
+    color: var(--text-light);
 }
 
 .btn-info {
-    background-color: var(--color-primary);
+    background-color: var(--accent-blue);
+    color: var(--text-light);
 }
 
 .btn-warning {
-    background-color: var(--color-warning);
+    background-color: var(--warning-color);
+    color: var(--primary-blue);
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--color-text-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(1, 13, 20, 0.4);
 }
 
 .fa-solid {
-    color: var(--color-bg);
+    color: var(--text-light);
+}
+
+.btn-secondary .fa-solid {
+    color: var(--primary-dark-blue);
+}
+
+.btn-warning .fa-solid {
+    color: var(--primary-blue);
 }
 
 .botones {
@@ -149,12 +170,13 @@ p strong {
 
 @media (max-width: 1400px) {
     .fixed-card {
-            width: 500px;
-            height: 550px;
-            grid-template-columns: 1fr;
-            grid-template-rows: 180px 1fr;
-        }
+        width: 500px;
+        height: 550px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 180px 1fr;
+    }
 }
+
 @media (max-width: 1200px) {
     .fixed-card {
         width: 400px;
@@ -171,9 +193,11 @@ p strong {
         grid-template-columns: 1fr;
         grid-template-rows: 180px 1fr;
     }
-    .card-content{
+
+    .card-content {
         padding-top: 1rem;
     }
+
     p {
         font-size: 0.85rem;
     }
