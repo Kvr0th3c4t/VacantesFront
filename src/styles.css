@@ -1,22 +1,29 @@
 :root {
-    /* Colores base */
-    --color-bg: #F9F9F9;
-    --color-surface: #E5E5EA;
-    --color-border: #E5E5EA;
-    --color-text-primary: #1C1C1E;
-    --color-text-secondary: #A1A1A6;
+    --primary-blue: #051824;
+    --primary-teal: #27E9B5;
+    --primary-navy: #3B5265;
+    --primary-dark-blue: #162936;
+    --primary-red: #DC3545;
 
-    --color-primary: #0A84FF;
+    --accent-blue: #0A84FF;
+    --accent-yellow: #FFD60A;
+    --accent-green: #198754;
+    --accent-dark: #010D14;
+    --accent-light: #D3E5F8;
 
-    --color-success: #32D74B;
+    --background-dark: var(--primary-blue);
+    --background-light: var(--accent-light);
+    --text-dark: var(--primary-dark-blue);
+    --text-light: var(--accent-light);
+    --primary-brand: var(--primary-teal);
+    --secondary-brand: var(--primary-navy);
+    --accent-color: var(--accent-blue);
+    --success-color: var(--accent-green);
+    --warning-color: var(--accent-yellow);
+    --danger-color: var(--primary-red);
 
-    --color-warning: #FFD60A;
-
-    --color-danger: #FF3B30;
-
-    --color-dark-bg: #1C1C1E;
-    --color-dark-surface: #2C2C2E;
-    --color-dark-text: #D1D1D6;
+    --overlay-dark: rgba(1, 13, 20, 0.7);
+    --overlay-light: rgba(211, 229, 248, 0.7);
 }
 
 @font-face {
@@ -27,10 +34,18 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Nunito';
+    src: url('/assets/fonts/Nunito-Italic-VariableFont_wght.ttf') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--color-bg);  
+    background-color: var(--primary-dark-blue);  
 }
 
 * {

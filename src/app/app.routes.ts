@@ -20,9 +20,11 @@ import { EmpresaCRUDModificarComponent } from './pages/empresa-crudmodificar/emp
 import { UsuarioCRUDModificarComponent } from './pages/usuario-crudmodificar/usuario-crudmodificar.component';
 import { CategoriasCRUDModificarComponent } from './pages/categorias-crudmodificar/categorias-crudmodificar.component';
 import { AdminAltaEmpresaComponent } from './pages/admin-alta-empresa/admin-alta-empresa.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
 export const routes: Routes = [
   { path: 'login', pathMatch: 'full', component: LoginComponent },
+  { path: 'landing', component: LandingPageComponent },
   { path: 'signup', component: RegistroComponent },
   {
     path: 'usuario',
@@ -174,5 +176,5 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '**', redirectTo: '/login' },
+  { path: '**', redirectTo: '/landing' },
 ];
