@@ -18,6 +18,7 @@ import { CRUDUsuariosComponent } from './pages/crudusuarios/crudusuarios.compone
 import { CRUDCategoriasComponent } from './pages/crudcategorias/crudcategorias.component';
 import { EmpresaCRUDModificarComponent } from './pages/empresa-crudmodificar/empresa-crudmodificar.component';
 import { UsuarioCRUDModificarComponent } from './pages/usuario-crudmodificar/usuario-crudmodificar.component';
+import { CategoriasCRUDModificarComponent } from './pages/categorias-crudmodificar/categorias-crudmodificar.component';
 
 export const routes: Routes = [
   { path: 'login', pathMatch: 'full', component: LoginComponent },
@@ -95,6 +96,12 @@ export const routes: Routes = [
       {
         path: 'UsuarioCRUDModificar/:email',
         component: UsuarioCRUDModificarComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'CategoriaCRUDModificar/:idCategoria',
+        component: CategoriasCRUDModificarComponent,
         canActivate: [loginGuard], // Protege la ruta hija
         data: { roles: ['ADMON'] },
       },

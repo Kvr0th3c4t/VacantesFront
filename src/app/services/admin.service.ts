@@ -80,6 +80,17 @@ httpCliente = inject(HttpClient);
     return this.httpCliente.get<ICategoria[]>(`${this.baseUrl}/verCategorias`);
   }
 
+  getCategoriaById(idCategoria: string): Observable<ICategoria>{
+    return this.httpCliente.get<ICategoria>(`${this.baseUrl}/getCategoriaId/${idCategoria}`)
+  } 
+
+  modificarCategoria(idCategoria: string, data: ICategoria): Observable<ICategoria> {
+    return this.httpCliente.put<ICategoria>(
+      `${this.baseUrl}/modificarCategoria/${idCategoria}`,
+      data
+    );
+  }
+
   eliminarCategoria(idCategoria: string): Observable<any>{
     return this.httpCliente.delete(`${this.baseUrl}/eliminarCategoria/${idCategoria}`)
   } 

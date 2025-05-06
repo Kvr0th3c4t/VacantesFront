@@ -92,7 +92,7 @@ ngOnInit(): void {
   }
 
   goBack() {
-    this.router.navigate(["/admin/home"]);
+    this.router.navigate(["/admin/CRUDEmpresas"]);
   }
 
 }
