@@ -9,6 +9,7 @@ import { ICategoria } from '../interfaces/icategoria';
 import { IempresaTable } from '../interfaces/iempresa-table';
 import { IEmpresaModificar } from '../interfaces/iempresa-modificar';
 import { IAltaEmpresa } from '../interfaces/ialta-empresa';
+import { IAltaAdmin } from '../interfaces/ialta-admin';
 
 @Injectable({
   providedIn: 'root'
@@ -64,6 +65,10 @@ httpCliente = inject(HttpClient);
       `${this.baseUrl}/modificarUsuario/${email}`,
       data
     );
+  }
+
+  altaUsuario(data: IAltaAdmin): Observable<any> {
+      return this.httpCliente.post(`${this.baseUrl}/altaAdmin`, data);
   }
 
   eliminarUsuario(email: string): Observable<any>{
