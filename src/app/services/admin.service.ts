@@ -50,7 +50,6 @@ httpCliente = inject(HttpClient);
     return this.httpCliente.delete(`${this.baseUrl}/eliminarEmpresa/${idEmpresa}`)
   } 
   
-
   //Usuario
   getAllUsers(): Observable<IUser[]> {
     return this.httpCliente.get<IUser[]>(`${this.baseUrl}/verUsuarios`);

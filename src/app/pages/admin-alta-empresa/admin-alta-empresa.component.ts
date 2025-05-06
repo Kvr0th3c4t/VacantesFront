@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
 import { Router, ActivatedRoute } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import Swal from 'sweetalert2';
-import { ICategoria } from '../../interfaces/icategoria';
 import { AdminService } from '../../services/admin.service';
 import { IAltaEmpresa } from '../../interfaces/ialta-empresa';
 
