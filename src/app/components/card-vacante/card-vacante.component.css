@@ -5,17 +5,11 @@
     height: 350px;
     overflow: hidden;
     border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(39, 233, 181, 0.5);
+    box-shadow: 0 8px 24px rgba(39, 233, 181, 0.4);
     margin: 1rem auto;
-    border: 1px solid var(--primary-teal);
-    background-color: rgba(211, 229, 248, 0.9);
-    backdrop-filter: blur(5px);
+    border: 1px solid var(--accent-blue);
+    background-color: rgba(22, 41, 54, 0.95);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.fixed-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(39, 233, 181, 0.7);
 }
 
 .card-badge {
@@ -30,6 +24,18 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    position: relative;
+}
+
+.card-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 70%, rgba(22, 41, 54, 1) 100%);
+    z-index: 1;
 }
 
 .card-image img {
@@ -48,6 +54,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    color: var(--accent-light);
 }
 
 .truncate-title {
@@ -55,25 +62,27 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 1.4rem;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 1.2rem;
-    color: var(--primary-blue);
+    color: var(--accent-light) !important;
 }
 
-p {
-    color: var(--primary-blue);
+.card-content p {
+    color: var(--accent-light);
+    opacity: 0.9;
     font-size: 0.95rem;
     line-height: 1.4;
     margin-bottom: 0.5rem;
 }
 
-p strong {
+.card-content p strong {
     font-weight: 600;
-    color: var(--primary-dark-blue);
+    color: var(--primary-teal);
 }
 
 .description {
-    color: var(--primary-blue);
+    color: var(--accent-light);
+    opacity: 0.8;
     font-size: 0.9rem;
     overflow: hidden;
     display: -webkit-box;
@@ -88,66 +97,59 @@ p strong {
     font-size: 0.75rem;
     letter-spacing: 0.02em;
     border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .text-bg-success {
-    background-color: var(--success-color);
+    background: linear-gradient(to right, var(--primary-teal), var(--accent-green));
+    color: var(--primary-dark-blue);
 }
 
 .text-bg-danger {
-    background-color: var(--danger-color);
+    background: linear-gradient(to right, var(--primary-red), #b52b38);
+    color: white;
 }
 
 .btn {
     font-size: 0.875rem;
     font-weight: 600;
-    /* Aumentado para mejor legibilidad */
     padding: 0.6rem 1.5rem;
     border-radius: 20px;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
-    background-color: var(--primary-teal);
+    background: linear-gradient(to right, var(--primary-teal), var(--accent-blue));
     color: var(--primary-dark-blue);
-    width: auto;
 }
 
 .btn-danger {
-    background-color: var(--danger-color);
-    color: var(--text-light);
+    background: linear-gradient(to right, var(--primary-red), #b52b38);
+    color: white;
 }
 
 .btn-info {
-    background-color: var(--accent-blue);
-    color: var(--text-light);
+    background: linear-gradient(to right, var(--accent-blue), #0057cc);
+    color: white;
 }
 
 .btn-warning {
-    background-color: var(--warning-color);
+    background: linear-gradient(to right, var(--accent-yellow), #e6a800);
     color: var(--primary-blue);
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(1, 13, 20, 0.4);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    filter: brightness(110%);
 }
 
 .fa-solid {
-    color: var(--text-light);
-}
-
-.btn-secondary .fa-solid {
-    color: var(--primary-dark-blue);
-}
-
-.btn-warning .fa-solid {
-    color: var(--primary-blue);
+    color: inherit;
 }
 
 .botones {
@@ -174,6 +176,10 @@ p strong {
         height: 550px;
         grid-template-columns: 1fr;
         grid-template-rows: 180px 1fr;
+    }
+
+    .card-image::after {
+        background: linear-gradient(to bottom, transparent 70%, rgba(22, 41, 54, 1) 100%);
     }
 }
 
@@ -203,8 +209,6 @@ p strong {
     }
 }
 
-
-/* Móviles */
 @media (max-width: 575px) {
     .fixed-card {
         width: 320px;
@@ -215,10 +219,6 @@ p strong {
 
     .card-content {
         padding: 1rem;
-    }
-
-    p {
-        font-size: 0.85rem;
     }
 
     .description {

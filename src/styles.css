@@ -64,7 +64,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: var(--gradient-dark) !important;  
+    background-color: var(--overlay-dark) !important;  
 }
 
 * {
