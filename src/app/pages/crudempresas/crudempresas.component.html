@@ -1,16 +1,8 @@
-<!-- <section class="container-fluid p-5 m-auto">
-    
-    @for (empresa of arrEmpresas; track empresa.idEmpresa){
-        <app-empresas-crudtable [empresa]="empresa" [id]="empresa.idEmpresa"></app-empresas-crudtable>
-    }
-</section> -->
-
 <section class="container-fluid p-5 m-auto">
     <div class="card shadow-sm border-0">
         <div class="card-body p-0">
             <div class="table-responsive">
                 <table class="table table-hover mb-0">
-                    <!-- Encabezados de tabla (una sola vez) -->
                     <thead class="bg-light">
                         <tr>
                             <th scope="col">Id Empresa</th>
@@ -22,7 +14,6 @@
                             <th scope="col">Administrar</th>
                         </tr>
                     </thead>
-                    <!-- Filas repetidas para cada empresa -->
                     <tbody>
                         @for (empresa of arrEmpresas; track empresa.idEmpresa) {
                         <tr>
@@ -56,7 +47,7 @@
                                         <i class="fa-solid fa-trash"></i>
                                         <span>Eliminar</span>
                                     </button>
-                                    <a [routerLink]="['/admin/updateEmpresa', empresa.idEmpresa]"
+                                    <a [routerLink]="['/admin/EmpresaCRUDModificar', empresa.idEmpresa]"
                                         class="btn btn-warning gap-2">
                                         <i class="fa-solid fa-pencil"></i>
                                         <span>Modificar</span>

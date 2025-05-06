@@ -51,7 +51,7 @@ export class EmpresaVacanteFormComponent {
         this.tipo = "Modificar";
         const vacanteResponse: ICardVacante = await firstValueFrom(
           this.empresaService.getVacanteById(params.idVacante)
-          
+
         );
         console.log("Vacante recibida:", vacanteResponse);
 

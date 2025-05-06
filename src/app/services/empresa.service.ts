@@ -1,9 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ICardVacante } from '../interfaces/icard-vacante';
 import { ISolicitudes } from '../interfaces/isolicitudes';
-import { Iempresa } from '../interfaces/iempresa';
 import { IVacanteDetalle } from '../interfaces/ivacante-detalle';
 import { IVacanteModificar } from '../interfaces/ivacante-modificar';
 import { IVacanteAlta } from '../interfaces/ivacante-alta';

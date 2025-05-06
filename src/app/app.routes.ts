@@ -16,6 +16,7 @@ import { EmpresaEditPerfilComponent } from './pages/empresa-edit-perfil/empresa-
 import { CRUDEmpresasComponent } from './pages/crudempresas/crudempresas.component';
 import { CRUDUsuariosComponent } from './pages/crudusuarios/crudusuarios.component';
 import { CRUDCategoriasComponent } from './pages/crudcategorias/crudcategorias.component';
+import { EmpresaCRUDModificarComponent } from './pages/empresa-crudmodificar/empresa-crudmodificar.component';
 
 export const routes: Routes = [
   { path: 'login', pathMatch: 'full', component: LoginComponent },
@@ -84,7 +85,12 @@ export const routes: Routes = [
         canActivate: [loginGuard], // Protege la ruta hija
         data: { roles: ['ADMON'] },
       },
-
+      {
+        path: 'EmpresaCRUDModificar/:idEmpresa',
+        component: EmpresaCRUDModificarComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
     ],
   },
   {

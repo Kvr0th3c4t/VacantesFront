@@ -7,6 +7,7 @@ import { ICardVacante } from '../interfaces/icard-vacante';
 import { ISolicitudes } from '../interfaces/isolicitudes';
 import { ICategoria } from '../interfaces/icategoria';
 import { IempresaTable } from '../interfaces/iempresa-table';
+import { IEmpresaModificar } from '../interfaces/iempresa-modificar';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,17 @@ httpCliente = inject(HttpClient);
 
   getAllEmpresas(): Observable<Iempresa[]> {
       return this.httpCliente.get<Iempresa[]>(`${this.baseUrl}/verEmpresas`);
+  }
+
+  getEmpresaById(idEmpresa: string): Observable<IEmpresaModificar>{
+    return this.httpCliente.get<IEmpresaModificar>(`${this.baseUrl}/getVacanteId/${idEmpresa}`)
+  } 
+  
+  modificarEmpresa(idEmpresa: string, data: IEmpresaModificar): Observable<IEmpresaModificar> {
+    return this.httpCliente.put<IEmpresaModificar>(
+      `${this.baseUrl}/modificarVacante/${idEmpresa}`,
+      data
+    );
   }
 
   getAllEmpresasTable(): Observable<IempresaTable[]> {
