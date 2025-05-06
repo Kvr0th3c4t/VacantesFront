@@ -19,6 +19,7 @@ import { CRUDCategoriasComponent } from './pages/crudcategorias/crudcategorias.c
 import { EmpresaCRUDModificarComponent } from './pages/empresa-crudmodificar/empresa-crudmodificar.component';
 import { UsuarioCRUDModificarComponent } from './pages/usuario-crudmodificar/usuario-crudmodificar.component';
 import { CategoriasCRUDModificarComponent } from './pages/categorias-crudmodificar/categorias-crudmodificar.component';
+import { AdminAltaEmpresaComponent } from './pages/admin-alta-empresa/admin-alta-empresa.component';
 
 export const routes: Routes = [
   { path: 'login', pathMatch: 'full', component: LoginComponent },
@@ -102,6 +103,12 @@ export const routes: Routes = [
       {
         path: 'CategoriaCRUDModificar/:idCategoria',
         component: CategoriasCRUDModificarComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'altaEmpresasForm',
+        component: AdminAltaEmpresaComponent,
         canActivate: [loginGuard], // Protege la ruta hija
         data: { roles: ['ADMON'] },
       },

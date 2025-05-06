@@ -1,0 +1,44 @@
+<section class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <h3 class="text-center">Alta empresa</h3>
+            <hr>
+            <form class="card shadow p-4" [formGroup]="empresaForm" (ngSubmit)="getDataForm()">
+                <div class="row">
+
+                    <div class="col-md-6 mt-3">
+                        <label for="nombreEmpresa" class="form-label">Nombre de la empresa</label>
+                        <input type="text" id="nombreEmpresa" class="form-control" formControlName="nombreEmpresa">
+                    </div>
+
+                    <div class="col-md-6 mt-3">
+                        <label for="cif" class="form-label">CIF</label>
+                        <input type="text" id="cif" class="form-control" formControlName="cif">
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label for="direccionFiscal" class="form-label">Dirección Fiscal</label>
+                        <input type="text" id="direccionFiscal" class="form-control" formControlName="direccionFiscal">
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" id="email" class="form-control" formControlName="email">
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label for="nombreUsuario" class="form-label">Nombre usuario</label>
+                        <input type="text" id="nombreUsuario" class="form-control" formControlName="nombreUsuario">
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label for="apellidos" class="form-label">Apellidos</label>
+                        <input type="text" id="apellidos" class="form-control" formControlName="apellidos">
+                    </div>
+                    
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <input type="submit" value="Guardar" class="btn btn-danger" [disabled]="!empresaForm.valid">
+                    <button type="button" class="btn btn-secondary" (click)="goBack()">Volver</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

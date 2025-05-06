@@ -106,7 +106,6 @@
 
     .description {
         font-size: 0.8rem;
-        -webkit-line-clamp: 2;
     }
 
     .truncate-title {

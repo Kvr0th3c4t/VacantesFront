@@ -1,5 +1,3 @@
-import { IUser } from "./iuser";
-
 export interface Iempresa {
 
     idEmpresa: number,

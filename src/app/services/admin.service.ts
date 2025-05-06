@@ -8,6 +8,7 @@ import { ISolicitudes } from '../interfaces/isolicitudes';
 import { ICategoria } from '../interfaces/icategoria';
 import { IempresaTable } from '../interfaces/iempresa-table';
 import { IEmpresaModificar } from '../interfaces/iempresa-modificar';
+import { IAltaEmpresa } from '../interfaces/ialta-empresa';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,10 @@ httpCliente = inject(HttpClient);
       `${this.baseUrl}/modificarEmpresa/${idEmpresa}`,
       data
     );
+  }
+
+  altaEmpresa(data: IAltaEmpresa): Observable<any> {
+      return this.httpCliente.post(`${this.baseUrl}/altaEmpresa`, data);
   }
 
   getAllEmpresasTable(): Observable<IempresaTable[]> {
