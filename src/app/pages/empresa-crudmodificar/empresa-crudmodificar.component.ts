@@ -25,7 +25,7 @@ export class EmpresaCRUDModificarComponent {
   constructor() {
     this.empresaForm = new FormGroup({
       nombre: new FormControl('', [Validators.required]),
-      direcconFiscal: new FormControl('', Validators.required),
+      direccionFiscal: new FormControl('', Validators.required),
       pais: new FormControl('', Validators.required),
     },
       []);
@@ -35,7 +35,7 @@ export class EmpresaCRUDModificarComponent {
 ngOnInit(): void {
 
     this.ActivatedRoute.params.subscribe(async (params: any) => {
-      if (params.idVacante) {
+      if (params.idEmpresa) {
         const empresaResponse: IEmpresaModificar = await firstValueFrom(
           this.adminService.getEmpresaById(params.idEmpresa)
 
@@ -92,7 +92,7 @@ ngOnInit(): void {
   }
 
   goBack() {
-    this.router.navigate(["/empresa/home"]);
+    this.router.navigate(["/admin/home"]);
   }
 
 }

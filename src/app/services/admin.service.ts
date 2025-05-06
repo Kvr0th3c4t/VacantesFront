@@ -26,12 +26,12 @@ httpCliente = inject(HttpClient);
   }
 
   getEmpresaById(idEmpresa: string): Observable<IEmpresaModificar>{
-    return this.httpCliente.get<IEmpresaModificar>(`${this.baseUrl}/getVacanteId/${idEmpresa}`)
+    return this.httpCliente.get<IEmpresaModificar>(`${this.baseUrl}/getEmpresaId/${idEmpresa}`)
   } 
   
   modificarEmpresa(idEmpresa: string, data: IEmpresaModificar): Observable<IEmpresaModificar> {
     return this.httpCliente.put<IEmpresaModificar>(
-      `${this.baseUrl}/modificarVacante/${idEmpresa}`,
+      `${this.baseUrl}/modificarEmpresa/${idEmpresa}`,
       data
     );
   }
