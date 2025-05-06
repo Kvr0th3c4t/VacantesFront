@@ -50,6 +50,17 @@ httpCliente = inject(HttpClient);
     return this.httpCliente.get<IUser[]>(`${this.baseUrl}/verUsuarios`);
   }
 
+  getUsuarioById(email: string): Observable<IUser>{
+    return this.httpCliente.get<IUser>(`${this.baseUrl}/getUsuarioId/${email}`)
+  } 
+
+  modificarUsuario(email: string, data: IUser): Observable<IUser> {
+    return this.httpCliente.put<IUser>(
+      `${this.baseUrl}/modificarUsuario/${email}`,
+      data
+    );
+  }
+
   eliminarUsuario(email: string): Observable<any>{
     return this.httpCliente.put(`${this.baseUrl}/eliminarUsuario/${email}`, {});
   }
