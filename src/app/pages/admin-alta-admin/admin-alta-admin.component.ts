@@ -3,9 +3,9 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
 import { Router, ActivatedRoute } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import Swal from 'sweetalert2';
-import { IAltaEmpresa } from '../../interfaces/ialta-empresa';
 import { AdminService } from '../../services/admin.service';
 import { IAltaAdmin } from '../../interfaces/ialta-admin';
+import { IUser } from '../../interfaces/iuser';
 
 @Component({
   selector: 'app-admin-alta-admin',
@@ -19,17 +19,14 @@ router = inject(Router);
   adminService = inject(AdminService);
   ActivatedRoute = inject(ActivatedRoute);
 
-  @Input() empresa! : IAltaEmpresa;
+  @Input() admin! : IAltaAdmin[];
   adminForm: FormGroup;
 
   constructor() {
 
     this.adminForm = new FormGroup({
-      nombreEmpresa: new FormControl('', [Validators.required]),
-      cif: new FormControl('', [Validators.required]),
-      direccionFiscal: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      nombreUsuario: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required]),
+      nombre: new FormControl('', [Validators.required]),
       apellidos: new FormControl('', Validators.required),
     },
       []);
@@ -37,25 +34,25 @@ router = inject(Router);
 
 
   async getDataForm() {
-    let empresa: IAltaAdmin = this.adminForm.value;
+    let admin: IUser = this.adminForm.value;
     console.log(this.adminForm.value);
-    if (empresa) {
+    if (admin) {
       const res = await firstValueFrom(
-        this.adminService.altaEmpresa(empresa)
+        this.adminService.altaAdmin(admin)
       );
 
       if (res) {
 
         Swal.fire({
-          title: "Empresa creada!",
-          text: `La empresa ${res.nombre} se ha creado correctamente.`,
+          title: "¡Usuario creado!",
+          text: `El usuario ${admin.nombre} se ha creado correctamente.`,
           icon: "success"
         });
         this.router.navigate(['/admin/home']);
       } else {
         Swal.fire({
           title: "Vaya...parece que ha habido un problema",
-          text: ` No se ha podido actualizar al usuario correctamente.`,
+          text: ` No se ha podido crear al usuario correctamente.`,
           icon: "error"
         });
       }

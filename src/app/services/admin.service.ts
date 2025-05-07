@@ -67,9 +67,9 @@ httpCliente = inject(HttpClient);
     );
   }
 
-  altaUsuario(data: IAltaAdmin): Observable<any> {
-      return this.httpCliente.post(`${this.baseUrl}/altaAdmin`, data);
-  }
+  // altaUsuario(data: IAltaAdmin): Observable<any> {
+  //     return this.httpCliente.post(`${this.baseUrl}/altaAdmin`, data);
+  // }
 
   eliminarUsuario(email: string): Observable<any>{
     return this.httpCliente.put(`${this.baseUrl}/eliminarUsuario/${email}`, {});

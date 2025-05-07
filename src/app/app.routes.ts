@@ -21,10 +21,13 @@ import { UsuarioCRUDModificarComponent } from './pages/usuario-crudmodificar/usu
 import { CategoriasCRUDModificarComponent } from './pages/categorias-crudmodificar/categorias-crudmodificar.component';
 import { AdminAltaEmpresaComponent } from './pages/admin-alta-empresa/admin-alta-empresa.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { AdminAltaCategoriaComponent } from './pages/admin-alta-categoria/admin-alta-categoria.component';
+import { AdminCRUDADMINComponent } from './pages/admin-crudadmin/admin-crudadmin.component';
+import { AdminAltaAdminComponent } from './pages/admin-alta-admin/admin-alta-admin.component';
 
 export const routes: Routes = [
-  { path: 'login', pathMatch: 'full', component: LoginComponent },
-  { path: 'landing', component: LandingPageComponent },
+  { path: 'landing', pathMatch: 'full', component: LandingPageComponent },
+  { path: 'login',  component: LoginComponent },
   { path: 'signup', component: RegistroComponent },
   {
     path: 'usuario',
@@ -114,6 +117,24 @@ export const routes: Routes = [
         canActivate: [loginGuard], // Protege la ruta hija
         data: { roles: ['ADMON'] },
       },
+      {
+        path: 'altaCategoria',
+        component: AdminAltaCategoriaComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'verAdmins',
+        component: AdminCRUDADMINComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'altaUsuario',
+        component: AdminAltaAdminComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      }
     ],
   },
   {
