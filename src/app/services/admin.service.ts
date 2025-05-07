@@ -10,6 +10,7 @@ import { IempresaTable } from '../interfaces/iempresa-table';
 import { IEmpresaModificar } from '../interfaces/iempresa-modificar';
 import { IAltaEmpresa } from '../interfaces/ialta-empresa';
 import { IAltaAdmin } from '../interfaces/ialta-admin';
+import { IUsuarioDetalle } from '../interfaces/iusuario-detalle';
 
 @Injectable({
   providedIn: 'root'
@@ -104,4 +105,16 @@ httpCliente = inject(HttpClient);
     return this.httpCliente.delete(`${this.baseUrl}/eliminarCategoria/${idCategoria}`)
   } 
 
+  //PAULA
+  altaCategoria(data: ICategoria): Observable<any> {
+      return this.httpCliente.post(`${this.baseUrl}/altaCategoria`, data);
+  }
+
+  getAdministradores(): Observable<IUsuarioDetalle[]> {
+    return this.httpCliente.get<IUsuarioDetalle[]>(`${this.baseUrl}/verAdministradores`);
+  }
+
+  altaAdmin(data: IUser): Observable<any> {
+      return this.httpCliente.post(`${this.baseUrl}/altaAdmon`, data);
+  }
 }

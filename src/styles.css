@@ -1,5 +1,4 @@
 :root {
-    /* Colores base */
     --primary-blue: #051824;
     --primary-teal: #27E9B5;
     --primary-navy: #3B5265;
@@ -55,7 +54,7 @@
 
 @font-face {
     font-family: 'Nunito';
-    src: url('/assets/fonts/Nunito-Italic-VariableFont_wght.ttf') format('ttf');
+    src: url('/assets/fonts/Nunito-Italic-VariableFont_wght.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -63,8 +62,8 @@
 
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Nunito';
+    /* font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito'; */
     background-color: var(--overlay-dark) !important;  
 }
 

@@ -49,3 +49,42 @@ section hr {
     border-color: var(--primary-teal);
     opacity: 0.5;
 }
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-danger {
+    background: linear-gradient(to right, var(--primary-red), #b52b38);
+    border: none;
+    color: white;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+.btn-danger:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(to right, var(--primary-teal), var(--accent-blue));
+    border: none;
+    color: var(--primary-dark-blue);
+    box-shadow: 0 4px 10px rgba(39, 233, 181, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(39, 233, 181, 0.4);
+}
+
+.btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}

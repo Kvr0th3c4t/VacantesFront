@@ -44,11 +44,11 @@
             <label for="detalles" class="form-label">Detalles</label>
             <textarea id="detalles" class="form-control" formControlName="detalles" rows="4"></textarea>
           </div>
-
           <div class="d-flex justify-content-between mt-4">
             <input type="submit" value="Guardar" class="btn btn-danger" [disabled]="!vacantesForm.valid">
             <button type="button" class="btn btn-secondary" (click)="goBack()">Volver</button>
           </div>
+          
         </form>
       </div>
     </div>
