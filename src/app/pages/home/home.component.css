@@ -34,11 +34,6 @@ h4:after {
     min-height: 160px;
 }
 
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(39, 233, 181, 0.4) !important;
-}
-
 .stat-card .card-body {
     padding: 1.5rem;
 }
