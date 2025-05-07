@@ -46,7 +46,7 @@ export class CategoriasCRUDTableComponent {
   eliminarCategoria(idCategoria: string) {
         Swal.fire({
           title: "¿Estás seguro?",
-          text: "Esta acción eliminará la empresa.",
+          text: "Esta acción eliminará la categoria.",
           icon: "warning",
           showCancelButton: true,
           confirmButtonText: "Sí, eliminar",
@@ -62,7 +62,7 @@ export class CategoriasCRUDTableComponent {
               Swal.fire({
                 icon: "success",
                 title: "Eliminada",
-                text: "Tu solicitud ha sido eliminada.",
+                text: "Tu categoria ha sido eliminada.",
                 confirmButtonText: "Aceptar",
                 customClass: {
                   confirmButton: "btn btn-secondary",

@@ -47,7 +47,7 @@ export class AdminAltaEmpresaComponent {
 
         Swal.fire({
           title: "Empresa creada!",
-          text: `La empresa ${res.nombre} se ha creado correctamente.`,
+          text: `La empresa ${empresa.nombreEmpresa} se ha creado correctamente.`,
           icon: "success"
         });
         this.router.navigate(['/admin/home']);

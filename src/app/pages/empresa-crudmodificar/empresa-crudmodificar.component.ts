@@ -66,15 +66,15 @@ ngOnInit(): void {
       if (res.idEmpresa) {
 
         Swal.fire({
-          title: "Vacante actualizada!",
-          text: `La Empresa ${res.nombre} se ha actualizado correctamente.`,
+          title: "Empresa actualizada!",
+          text: `La Empresa ${empresa.nombre} se ha actualizado correctamente.`,
           icon: "success"
         });
         this.router.navigate(['/admin/home']);
       } else {
         Swal.fire({
           title: "Vaya...parece que ha habido un problema",
-          text: ` No se ha podido actualizar al usuario correctamente.`,
+          text: ` No se ha podido actualizar la empresa correctamente.`,
           icon: "error"
         });
       }

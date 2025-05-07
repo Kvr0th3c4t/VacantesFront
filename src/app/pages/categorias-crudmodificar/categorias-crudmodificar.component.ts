@@ -64,15 +64,15 @@ ngOnInit(): void {
       if (res.idCategoria) {
 
         Swal.fire({
-          title: "Vacante actualizada!",
-          text: `El categoria ${res.nombre} se ha actualizado correctamente.`,
+          title: "Categoria actualizada!",
+          text: `La categoria ${res.nombre} se ha actualizado correctamente.`,
           icon: "success"
         });
         this.router.navigate(['/admin/home']);
       } else {
         Swal.fire({
           title: "Vaya...parece que ha habido un problema",
-          text: ` No se ha podido actualizar al categoria correctamente.`,
+          text: ` No se ha podido actualizar la categoria correctamente.`,
           icon: "error"
         });
       }

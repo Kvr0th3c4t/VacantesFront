@@ -70,7 +70,7 @@ ngOnInit(): void {
       if (res.email) {
 
         Swal.fire({
-          title: "Vacante actualizada!",
+          title: "Usuario actualizado!",
           text: `El usuario ${res.nombre} se ha actualizado correctamente.`,
           icon: "success"
         });
