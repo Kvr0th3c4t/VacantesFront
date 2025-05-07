@@ -1,0 +1,5 @@
+<section class="container mt-5">
+    @for (usuario of arrUsuarios; track usuario.email){
+    <app-usuarios-crudtable [usuario]="usuario" [id]="usuario.email"></app-usuarios-crudtable>
+    }
+</section>
