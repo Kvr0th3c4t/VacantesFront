@@ -1,0 +1,7 @@
+<section class="container mt-3">
+    <div class="row g-4">
+            @for(categoria of arrCategorias; track categoria.idCategoria){
+            <app-categorias-crudtable [categoria]="categoria" [id]="categoria.idCategoria" class="col-lg-4 col-md-4 col-sm-4 p-4"></app-categorias-crudtable>
+            }
+    </div>
+</section>

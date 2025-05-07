@@ -1,22 +1,70 @@
 :root {
-    /* Colores base */
-    --color-bg: #F9F9F9;
-    --color-surface: #E5E5EA;
-    --color-border: #E5E5EA;
-    --color-text-primary: #1C1C1E;
-    --color-text-secondary: #A1A1A6;
+    --primary-blue: #051824;
+    --primary-teal: #27E9B5;
+    --primary-navy: #3B5265;
+    --primary-dark-blue: #162936;
+    --primary-red: #DC3545;
+    --accent-blue: #0A84FF;
+    --accent-yellow: #FFD60A;
+    --accent-green: #198754;
+    --accent-dark: #010D14;
+    --accent-light: #D3E5F8;
 
-    --color-primary: #0A84FF;
+    --gradient-primary: linear-gradient(135deg, var(--primary-teal), var(--accent-blue));
+    --gradient-dark: linear-gradient(45deg, var(--primary-blue), var(--primary-navy));
+    --gradient-light: linear-gradient(135deg, var(--accent-light), #ffffff);
 
-    --color-success: #32D74B;
+    --gradient-button-primary: linear-gradient(144deg, var(--primary-teal), var(--primary-navy) 50%, var(--accent-blue));
+    --gradient-button-success: linear-gradient(144deg, var(--primary-teal), var(--accent-green));
+    --gradient-button-warning: linear-gradient(144deg, var(--accent-yellow), #FFA500);
+    --gradient-button-danger: linear-gradient(144deg, var(--primary-red), #9E1B25);
 
-    --color-warning: #FFD60A;
+    --gradient-card-header: linear-gradient(to right, var(--primary-dark-blue), var(--primary-navy));
+    --gradient-background-dark: linear-gradient(135deg, var(--primary-blue), var(--primary-dark-blue) 70%);
+    --gradient-background-light: linear-gradient(135deg, #f8f9fa, var(--accent-light));
 
-    --color-danger: #FF3B30;
+    --gradient-overlay-dark: linear-gradient(rgba(1, 13, 20, 0.8), rgba(1, 13, 20, 0.6));
+    --gradient-overlay-blue: linear-gradient(rgba(10, 132, 255, 0.8), rgba(10, 132, 255, 0.4));
+    --gradient-overlay-teal: linear-gradient(rgba(39, 233, 181, 0.8), rgba(39, 233, 181, 0.4));
 
-    --color-dark-bg: #1C1C1E;
-    --color-dark-surface: #2C2C2E;
-    --color-dark-text: #D1D1D6;
+    --gradient-border-glow: linear-gradient(to right, var(--primary-teal), var(--accent-blue));
+    --gradient-text-highlight: linear-gradient(to right, var(--primary-teal), var(--accent-blue));
+
+    --background-dark: var(--primary-blue);
+    --background-light: var(--accent-light);
+    --text-dark: var(--primary-dark-blue);
+    --text-light: var(--accent-light);
+    --primary-brand: var(--primary-teal);
+    --secondary-brand: var(--primary-navy);
+    --accent-color: var(--accent-blue);
+    --success-color: var(--accent-green);
+    --warning-color: var(--accent-yellow);
+    --danger-color: var(--primary-red);
+    --overlay-dark: rgba(1, 13, 20, 0.7);
+    --overlay-light: rgba(211, 229, 248, 0.7);
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat-VariableFont_wght.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('/assets/fonts/Nunito-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+body {
+    /* font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito'; */
+    background-color: var(--overlay-dark) !important;  
 }
 
 * {
@@ -24,6 +72,3 @@
     font: inherit;
 }
 
-body{
-    background-color: var(--color-bg);
-}

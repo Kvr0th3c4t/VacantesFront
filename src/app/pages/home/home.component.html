@@ -1,63 +1,7 @@
-<!-- <div class="container mt-5 mb-5">
-
-  @if (!cargando) {
-
-  @if (this.userRole === 'CLIENTE') {
-  <div class="row justify-content-center">
-
-    @for (vacante of arrVacantes; track vacante.idVacante) {
-    <article class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-      <app-card-vacante [vacante]="vacante" [id]="vacante.idVacante">
-      </app-card-vacante>
-    </article>
-    }
-
-    @empty {
-    <div class="alert alert-danger" role="alert">
-      No hay vacantes disponibles.
-    </div>
-    }
-
-  </div>
-  }
-
-  @else if (this.userRole === 'EMPRESA') {
-    <div class="row justify-content-center">
-  
-      @for (vacante of arrVacantes; track vacante.idVacante) {
-      <article class="col-12 col-md-6 mb-4 d-flex justify-content-center">
-        <app-card-vacante [vacante]="vacante" [id]="vacante.idVacante">
-        </app-card-vacante>
-      </article>
-      }
-  
-      @empty {
-      <div class="alert alert-danger" role="alert">
-        No hay vacantes disponibles.
-      </div>
-      }
-  
-    </div>
-    }
-
-  @else if (this.userRole === 'ADMON') {
-  ESTA ES LA HOME DE ADMIN 😉
-  }
-
-  }
-
-  @else {
-  <div class="text-center">
-    <div class="spinner-border text-secondary" role="status"></div>
-    <p class="mt-2">Cargando solicitudes...</p>
-  </div>
-  }
-
-</div> -->
-<div class="container mt-5">
+<div class="divFondo">
   @if (!cargando) {
   @if (this.userRole === 'CLIENTE' || this.userRole === 'EMPRESA') {
-  <div class="row g-4">
+  <div class="row g-4 mt-4">
     @for (vacante of arrVacantes; track vacante.idVacante) {
     <div class="col-md-6">
       <article class="d-flex justify-content-center">
@@ -77,17 +21,154 @@
   </div>
   }
 
-  @else if (this.userRole === 'ADMON') {
-  <div class="alert alert-info text-center py-4">
-    ESTA ES LA HOME DE ADMIN 😉
-  </div>
-  }
-  }
+  }@if (this.userRole === 'ADMON') {
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h4 class="mb-0">Administración de Empresas</h4>
+    </div>
 
-  @else {
-  <div class="d-flex flex-column align-items-center justify-content-center py-5">
-    <div class="spinner-border text-primary"></div>
-    <p class="mt-3">Cargando solicitudes...</p>
+    <div class="row g-4 mb-5">
+      <div class="col-12 col-sm-4">
+        <div class="card stat-card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="stat-icon bg-primary bg-opacity-10 text-primary">
+                <i class="fas fa-building"></i>
+              </div>
+            </div>
+            <h6 class="text-muted mb-2">Total Empresas</h6>
+            <h4 class="mb-3">{{arrEmpresas.length}}</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-4">
+        <div class="card stat-card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="stat-icon bg-info bg-opacity-10 text-info">
+                <i class="fas fa-briefcase"></i>
+              </div>
+            </div>
+            <h6 class="text-muted mb-2">Total vacantes</h6>
+            <h4 class="mb-3">{{arrVacantes.length}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4">
+        <div class="card stat-card border-0 shadow-sm h-100">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <div class="botones-stack">
+              <a class="btn btn-success w-100 mb-2" [routerLink]="['/admin/altaEmpresasForm']">
+                <i class="fa-solid fa-circle-info me-2"></i>Alta de empresas
+              </a>
+              <a class="btn btn-success w-100" [routerLink]="['/admin/CRUDEmpresas']">
+                <i class="fa-solid fa-circle-info me-2"></i>Ir a administrar Empresas
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-4 mt-5">
+      <h4 class="mb-0">Administración de Usuarios</h4>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-12 col-sm-4">
+        <div class="card stat-card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="stat-icon bg-primary bg-opacity-10 text-primary">
+                <i class="fas fa-users"></i>
+              </div>
+            </div>
+            <h6 class="text-muted mb-2">Total Usuarios</h6>
+            <h4 class="mb-3">{{arrUsuarios.length}}</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-4">
+        <div class="card stat-card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="stat-icon bg-info bg-opacity-10 text-info">
+                <i class="fas fa-paper-plane"></i>
+              </div>
+            </div>
+            <h6 class="text-muted mb-2">Solicitudes Enviadas</h6>
+            <h4 class="mb-3">{{arrSolicitudes.length}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4">
+        <div class="card stat-card border-0 shadow-sm h-100">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <div class="botones-stack">
+              <a class="btn btn-success w-100 mb-2" [routerLink]="['/admin/altaUsuario']">
+                <i class="fa-solid fa-circle-info me-2"></i>Alta de administrador
+              </a>
+              <a class="btn btn-success w-100 mb-2" [routerLink]="['/admin/CRUDUsuarios']">
+                <i class="fa-solid fa-circle-info me-2"></i>Ir a gestionar todos los usuarios
+              </a>
+              <a class="btn btn-success w-100" [routerLink]="['/admin/verAdmins']">
+                <i class="fa-solid fa-circle-info me-2"></i>Ir a gestionar administradores
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-4 mt-5">
+      <h4 class="mb-0">Administración de Categorías</h4>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-12 col-sm-4">
+        <div class="card stat-card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="stat-icon bg-primary bg-opacity-10 text-primary">
+                <i class="fas fa-tags"></i>
+              </div>
+            </div>
+            <h6 class="text-muted mb-2">Total Categorías</h6>
+            <h4 class="mb-3">{{arrCategorias.length}}</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-4">
+        <div class="card stat-card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="stat-icon bg-info bg-opacity-10 text-info">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+            </div>
+            <h6 class="text-muted mb-2">Vacantes/Categoría</h6>
+            <h4 class="mb-3">{{getVacantesCategorias()}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4">
+        <div class="card stat-card border-0 shadow-sm h-100">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <div class="botones-stack">
+              <a class="btn btn-success w-100 mb-2" [routerLink]="['/admin/altaCategoria']">
+                <i class="fa-solid fa-circle-info me-2"></i>Alta de categorias
+              </a>
+              <a class="btn btn-success w-100" [routerLink]="['/admin/CRUDCategorias']">
+                <i class="fa-solid fa-circle-info me-2"></i>Ir a gestionar categorias
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   }
 </div>

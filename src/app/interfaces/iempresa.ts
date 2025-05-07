@@ -1,5 +1,3 @@
-import { IUser } from "./iuser";
-
 export interface Iempresa {
 
     idEmpresa: number,
@@ -7,6 +5,5 @@ export interface Iempresa {
     nombre: string,
     direccionFiscal: string,
     pais: string,
-    user: IUser[];
-
+    email:string
 }

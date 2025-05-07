@@ -1,183 +1,90 @@
-/* Estilos para el formulario de nueva vacante */
-section.container {
-    max-width: 1200px;
-    margin: 3rem auto;
-}
-
-h3 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    margin-bottom: 1rem;
-}
-
-hr {
-    border-color: var(--color-border);
-    opacity: 0.5;
-    margin: 1.5rem 0;
-}
-
 form.card {
-    border: none;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    background-color: #ffffff;
-    padding: 2rem !important;
+    background-color: rgba(22, 41, 54, 0.95);
+    border: 1px solid var(--primary-teal);
+    box-shadow: 0 10px 30px rgba(39, 233, 181, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-label {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--color-text-primary);
+form.card .form-label {
+    color: var(--accent-light);
+    font-weight: 600;
     margin-bottom: 0.5rem;
+    font-size: 0.95rem;
 }
 
-.form-control {
-    padding: 0.75rem 1rem;
-    font-size: 0.95rem;
-    border-radius: 12px;
-    border: 1px solid var(--color-border);
-    background-color: #ffffff;
+form.card .form-control {
+    background-color: rgba(59, 82, 101, 0.5);
+    border: 1px solid var(--primary-teal);
+    color: var(--accent-light);
     transition: all 0.3s ease;
-    box-shadow: none;
 }
 
-.form-control:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.15);
-    outline: none;
-}
-
-/* Eliminar flechas de incremento del input number */
-input[type="number"] {
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield;
-    appearance: textfield;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-select.form-control {
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231C1C1E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 16px;
-    padding-right: 2.5rem;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-.text-danger {
-    color: var(--color-danger) !important;
-    font-size: 0.8rem;
-    margin-top: 0.35rem;
-}
-
-/* Estilos para el textarea */
-textarea#detalles {
-    resize: vertical;
-    min-height: 100px;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    padding: 0.75rem 1rem;
-}
-
-.btn {
-    font-size: 0.875rem;
-    font-weight: 500;
-    padding: 0.75rem 1.75rem;
-    border-radius: 20px;
-    transition: all 0.25s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    border: none;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-}
-
-.btn-danger {
-    background-color: var(--color-primary);
+form.card .form-control:focus {
+    background-color: rgba(59, 82, 101, 0.7);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 0.2rem rgba(10, 132, 255, 0.25);
     color: white;
 }
 
-.btn-danger:hover:not([disabled]) {
-    background-color: rgba(10, 132, 255, 0.9);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(10, 132, 255, 0.2);
+form.card select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2327E9B5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+form.card .text-danger {
+    color: var(--primary-red) !important;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+section h3 {
+    color: var(--accent-light);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+section hr {
+    border-color: var(--primary-teal);
+    opacity: 0.5;
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-danger {
+    background: linear-gradient(to right, var(--primary-red), #b52b38);
+    border: none;
+    color: white;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+.btn-danger:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
 }
 
 .btn-secondary {
-    background-color: var(--color-surface);
-    color: var(--color-text-primary);
+    background: linear-gradient(to right, var(--primary-teal), var(--accent-blue));
+    border: none;
+    color: var(--primary-dark-blue);
+    box-shadow: 0 4px 10px rgba(39, 233, 181, 0.3);
 }
 
 .btn-secondary:hover {
-    background-color: #d8d8de;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(39, 233, 181, 0.4);
 }
 
-.btn[disabled] {
-    opacity: 0.6;
+.btn:disabled {
+    opacity: 0.65;
     cursor: not-allowed;
-}
-
-/* Mejoras específicas para este formulario */
-.row {
-    margin: 0 -0.5rem;
-}
-
-.col-md-3,
-.col-md-6,
-.col-md-9,
-.col-md-12 {
-    padding: 0 0.5rem;
-}
-
-input::placeholder,
-select::placeholder {
-    color: var(--color-text-secondary);
-    opacity: 0.7;
-}
-
-/* Estilos para el select de categorías */
-#idCategoria {
-    color: var(--color-text-primary);
-}
-
-#idCategoria option {
-    padding: 8px;
-}
-
-#idCategoria option:first-child {
-    color: var(--color-text-secondary);
-}
-
-/* Media queries */
-@media (max-width: 768px) {
-    form.card {
-        padding: 1.5rem !important;
-    }
-
-    .col-md-3,
-    .col-md-9 {
-        width: 100%;
-    }
-
-    .d-flex.justify-content-between {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .btn {
-        width: 100%;
-        padding: 0.65rem 1.25rem;
-        font-size: 0.8rem;
-    }
 }

@@ -1,0 +1,99 @@
+.card {
+    background-color: rgba(22, 41, 54, 0.95);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(39, 233, 181, 0.3);
+    border: 1px solid var(--accent-blue);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    padding: 1.5rem;
+    color: var(--accent-light);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-body i {
+    font-size: 1.25rem;
+    color: var(--primary-teal);
+}
+
+.card-body .butIcon {
+    font-size: 1.25rem;
+    color: var(--accent-blue);
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+.botones {
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
+}
+
+.botones .btn {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background: linear-gradient(to right, var(--primary-teal), var(--accent-blue));
+    color: var(--primary-dark-blue);
+}
+
+.btn-danger {
+    background: linear-gradient(to right, var(--primary-red), #b52b38);
+    color: white;
+}
+
+.btn-info {
+    background: linear-gradient(to right, var(--accent-blue), #0057cc);
+    color: white;
+}
+
+.btn-warning {
+    background: linear-gradient(to right, var(--accent-yellow), #e6a800);
+    color: var(--primary-dark-blue);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.fa-solid {
+    color: inherit;
+}
+
+@media (max-width: 992px) {
+    .col-lg-6 {
+        margin-bottom: 1rem;
+    }
+}

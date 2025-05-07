@@ -13,9 +13,21 @@ import { EmpresaVerPostulantesComponent } from './pages/empresa-ver-postulantes/
 import { EmpresaVacanteFormComponent } from './pages/empresa-vacante-form/empresa-vacante-form.component';
 import { EmpresaVacanteFormAltaComponent } from './pages/empresa-vacante-form-alta/empresa-vacante-form-alta.component';
 import { EmpresaEditPerfilComponent } from './pages/empresa-edit-perfil/empresa-edit-perfil.component';
+import { CRUDEmpresasComponent } from './pages/crudempresas/crudempresas.component';
+import { CRUDUsuariosComponent } from './pages/crudusuarios/crudusuarios.component';
+import { CRUDCategoriasComponent } from './pages/crudcategorias/crudcategorias.component';
+import { EmpresaCRUDModificarComponent } from './pages/empresa-crudmodificar/empresa-crudmodificar.component';
+import { UsuarioCRUDModificarComponent } from './pages/usuario-crudmodificar/usuario-crudmodificar.component';
+import { CategoriasCRUDModificarComponent } from './pages/categorias-crudmodificar/categorias-crudmodificar.component';
+import { AdminAltaEmpresaComponent } from './pages/admin-alta-empresa/admin-alta-empresa.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { AdminAltaCategoriaComponent } from './pages/admin-alta-categoria/admin-alta-categoria.component';
+import { AdminCRUDADMINComponent } from './pages/admin-crudadmin/admin-crudadmin.component';
+import { AdminAltaAdminComponent } from './pages/admin-alta-admin/admin-alta-admin.component';
 
 export const routes: Routes = [
-  { path: 'login', pathMatch: 'full', component: LoginComponent },
+  { path: 'landing', pathMatch: 'full', component: LandingPageComponent },
+  { path: 'login',  component: LoginComponent },
   { path: 'signup', component: RegistroComponent },
   {
     path: 'usuario',
@@ -64,11 +76,65 @@ export const routes: Routes = [
         data: { roles: ['ADMON'] },
       },
       {
-        path: 'solicitudes',
-        component: EmpresaSolicitudesComponent,
+        path: 'CRUDEmpresas',
+        component: CRUDEmpresasComponent,
         canActivate: [loginGuard], // Protege la ruta hija
-        data: { roles: ['EMPRESA'] },
+        data: { roles: ['ADMON'] },
       },
+      {
+        path: 'CRUDUsuarios',
+        component: CRUDUsuariosComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'CRUDCategorias',
+        component: CRUDCategoriasComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'EmpresaCRUDModificar/:idEmpresa',
+        component: EmpresaCRUDModificarComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'UsuarioCRUDModificar/:email',
+        component: UsuarioCRUDModificarComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'CategoriaCRUDModificar/:idCategoria',
+        component: CategoriasCRUDModificarComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'altaEmpresasForm',
+        component: AdminAltaEmpresaComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'altaCategoria',
+        component: AdminAltaCategoriaComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'verAdmins',
+        component: AdminCRUDADMINComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      },
+      {
+        path: 'altaUsuario',
+        component: AdminAltaAdminComponent,
+        canActivate: [loginGuard], // Protege la ruta hija
+        data: { roles: ['ADMON'] },
+      }
     ],
   },
   {
@@ -131,5 +197,5 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '**', redirectTo: '/login' },
+  { path: '**', redirectTo: '/landing' },
 ];

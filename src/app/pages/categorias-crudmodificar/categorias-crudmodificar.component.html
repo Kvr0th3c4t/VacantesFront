@@ -1,0 +1,33 @@
+<section class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <h3 class="text-center"> Modificar usuario</h3>
+            <hr>
+            <form class="card shadow p-4" [formGroup]="categoriaForm" (ngSubmit)="getDataForm()">
+                <div class="row">
+
+                    <div class="col-md-5 mt-3">
+                        <label for="idCategoria" class="form-label">ID Categoría</label>
+                        <input type="text" id="idCategoria" class="form-control" formControlName="idCategoria">
+                    </div>
+
+                    <div class="col-md-3 mt-3">
+                        <label for="nombre" class="form-label">Nombre categoría</label>
+                        <input type="text" id="nombre" class="form-control" formControlName="nombre">
+                    </div>
+
+                    <div class="col-md-12 mt-3">
+                        <label for="descripcion" class="form-label">Descripción</label>
+                        <input type="text" id="descripcion" class="form-control" formControlName="descripcion">
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <input type="submit" value="Guardar" class="btn btn-danger" [disabled]="!categoriaForm.valid">
+                    <button type="button" class="btn btn-secondary" (click)="goBack()">Volver</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

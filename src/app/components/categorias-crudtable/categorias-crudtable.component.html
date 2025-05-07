@@ -1,0 +1,27 @@
+<div class="card h-100 shadow-sm">
+    <div class="card-body">
+        <div class="card-content">
+            <div class="text-center mb-3">
+                <i class="{{iconoAleatorio}}"></i>
+            </div>
+
+            <h5 class="card-title text-center mb-2">{{categoria.nombre}}</h5>
+
+            <p class="card-text text-center mb-4">{{categoria.descripcion}}</p>
+
+            <!-- Este div vacío creará el espacio flexible -->
+            <div class="spacer"></div>
+        </div>
+
+        <div class="botones gap-4">
+            <button class="btn btn-danger gap-2" (click)="eliminarCategoria(categoria.idCategoria)">
+                <i class="fa-solid fa-trash"></i>
+                <span>Eliminar</span>
+            </button>
+            <a [routerLink]="['/admin/CategoriaCRUDModificar', categoria.idCategoria]" class="btn btn-warning gap-2">
+                <i class="fa-solid fa-pencil"></i>
+                <span>Modificar</span>
+            </a>
+        </div>
+    </div>
+</div>
