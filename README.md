@@ -29,37 +29,37 @@
 ## 📸 Capturas de pantalla
 
 ### Landing Page
-![Landing Page](./screenshots/landing-page.png)
-
-### Login
-![Login](./screenshots/login.png)
+![Landing Page](./screenshots/landing.png)
 
 ### Dashboard Administrador
-![Dashboard Admin](./screenshots/dashboard-admin.png)
+![Dashboard administrador](./screenshots/adminDashboard.png)
 
-### Gestión de Empresas (Admin)
-![CRUD Empresas](./screenshots/crud-empresas.png)
+### Lista CRUD de empresas para Administrador
+![Crud empresas admin](./screenshots/adminEmpresas.png)
+
+### Lista CRUD de categorías para Administrador
+![Crud Categorias admin](./screenshots/adminCategorias.png)
+
+### Lista CRUD de usuarios para Administrador
+![Crud usuarios admin](./screenshots/adminUsers.png)
 
 ### Dashboard Empresa
-![Dashboard Empresa](./screenshots/dashboard-empresa.png)
+![Dashboard empresa](./screenshots/empresaDashboard.png)
 
-### Crear Vacante (Empresa)
-![Crear Vacante](./screenshots/crear-vacante.png)
+### Lista CRUD de postulantes para Empresa
+![Crud postulaciones empresa](./screenshots/empresaPostulantes.png)
 
-### Gestión de Solicitudes (Empresa)
-![Gestión Solicitudes](./screenshots/gestion-solicitudes.png)
+### Vista de detalle de la oferta para Empresa
+![Detalle oferta](./screenshots/empresaDetalleOferta.png)
 
-### Dashboard Cliente
-![Dashboard Cliente](./screenshots/dashboard-cliente.png)
+### Dashboard Usuario
+![Dashboard usuario](./screenshots/usuarioDashboard.png)
 
-### Búsqueda de Vacantes (Cliente)
-![Búsqueda Vacantes](./screenshots/busqueda-vacantes.png)
+### Vista de solicitudd de postulación para Usuario
+![Solicitud postulación usuario](./screenshots/usuarioSolicitud.png)
 
-### Solicitar Vacante (Cliente)
-![Solicitar Vacante](./screenshots/solicitar-vacante.png)
-
-### Mis Solicitudes (Cliente)
-![Mis Solicitudes](./screenshots/mis-solicitudes.png)
+### Lista CRUD de solicitudes para Usuario
+![Crud solicitudes usuario](./screenshots/usuarioSolicitudes.png)
 
 ## 🧪 Credenciales de Prueba
 
@@ -309,6 +309,11 @@ Si encuentras algún bug o tienes sugerencias:
 Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) para más detalles.
 
 ## 👨‍💻 Autor
+**Paula Fernández**
+- Github: https://github.com/Pafer10
+
+**Andrés Matabuena**
+- Github: https://github.com/DevYuco
 
 **Adrián Carmona**
 - Email: adrianc.crim@hotmail.com
